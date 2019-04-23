@@ -1,0 +1,11 @@
+# env stuff - unsure if I want to put the .env here
+bin/
+include/
+lib/
+share/
+.env
+*.pyc
+
+db.sqlite3
+
+*.old
