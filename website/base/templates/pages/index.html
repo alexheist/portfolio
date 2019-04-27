@@ -1,24 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section id="hero">
-	<div class="container">
-		<div class="row">
-			<h1>Software Developer</h1>
-		</div>
-		<div class="row">
-			<!-- TODO: create portfolio, and link it here -->
-			<a href="/contact"><button class="btn my-btn">Contact</button></a>
-		</div>
-		<div class="row">
+	<div id="hero">
+		<div class="scroll-icon">
+			<div class="outer">
+				<div class="inner"></div>
+			</div>
 		</div>
 	</div>
-</section>
-
-<section class="about container">
-	<h2>My Big Tagline</h2>
-	<div class="row">
+	<section id="cta">
+		<h1>Software Developer</h1>
+		<!-- TODO: create portfolio, and link it here -->
+		<a href="/contact"><button class="my-btn">Contact</button></a>
+	</section>
+	<main>
+		<h2>Header</h2>
 		<p>{% lorem 75 w %}</p>
-	</div>
-</div>
+	</main>
 {% endblock content %}

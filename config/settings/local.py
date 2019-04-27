@@ -4,6 +4,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='m+^qxi90bpl_ptp1o(iuv_-%9o_gzb8f-
 
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
 
+ALLOWED_HOSTS = ['*']
+
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',

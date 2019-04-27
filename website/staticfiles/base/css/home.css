@@ -1,108 +1,248 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 html {
-  font: "Montserrat", sans-serif;
-  color: #181818; }
+  font-family: "Montserrat", sans-serif; }
 
 body {
-  position: relative;
-  min-height: 100vh; }
+  margin: 0; }
 
-main {
-  padding-bottom: 120px; }
+.content-wrapper {
+  margin-top: 47px; }
 
-nav, .navbar {
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #fff;
-  height: 60px;
   padding: 0;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25); }
-  nav .brand, .navbar .brand {
-    background-color: #181818;
-    height: 60px; }
-    nav .brand p, .navbar .brand p {
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  z-index: 1; }
+  nav .brand {
+    border-left: 2.5em solid #181818; }
+    nav .brand p {
       background-color: #fff;
-      height: 60px;
-      padding: 5px 5px 5px 10px;
-      margin: 0;
-      font-size: 30px;
-      font-weight: 400;
-      font-style: normal;
-      margin-left: 3em;
-      border-left: solid 1em #ffcb6b; }
-  nav #navLinks, .navbar #navLinks {
-    padding-right: 2em; }
-    nav #navLinks li, .navbar #navLinks li {
-      margin: 1em; }
-    nav #navLinks a, .navbar #navLinks a {
-      color: #181818;
-      font-size: 16px;
-      font-weight: 300; }
-      nav #navLinks a:hover, .navbar #navLinks a:hover {
-        text-decoration: underline; }
+      margin: 0 0 0 0;
+      margin-bottom: 0;
+      padding: .5em 0 .5em .5em;
+      font-size: 20px;
+      border-left: 1em solid #ffcb6b; }
+  nav .mobile-btn, nav .mobile-icon {
+    position: absolute;
+    right: 1.25em;
+    top: .75em;
+    color: #dedede; }
+  nav ul {
+    background-color: #181818;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden; }
+    nav ul hr {
+      border: 1px solid #dedede;
+      margin: 0; }
+    nav ul li {
+      margin: 15px 0; }
+    nav ul a {
+      color: #fff;
+      text-decoration: none; }
+  nav .navLinks {
+    clear: both;
+    max-height: 0;
+    -webkit-transition: max-height .5s ease-out;
+    -o-transition: max-height .5s ease-out;
+    transition: max-height .5s ease-out; }
+  nav .mobile-icon {
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; }
+    nav .mobile-icon .navicon {
+      background: #dedede;
+      display: block;
+      height: 3px;
+      position: absolute;
+      top: 12px;
+      right: 5px;
+      transition: background .3s ease-out;
+      -webkit-transition: background .3s ease-out;
+      -o-transition: background .3s ease-out;
+      width: 21px; }
+      nav .mobile-icon .navicon:before, nav .mobile-icon .navicon:after {
+        background: #dedede;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .3s ease-out;
+        -webkit-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        width: 100%; }
+      nav .mobile-icon .navicon:before {
+        top: 6px; }
+      nav .mobile-icon .navicon:after {
+        top: -6px; }
+  nav .mobile-btn {
+    display: none; }
+    nav .mobile-btn:checked ~ .navLinks {
+      max-height: 150px; }
+    nav .mobile-btn:checked ~ .mobile-icon .navicon {
+      background: transparent; }
+    nav .mobile-btn:checked ~ .mobile-icon .navicon:before {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg); }
+    nav .mobile-btn:checked ~ .mobile-icon .navicon:after {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg); }
+    nav .mobile-btn:checked ~ .mobile-icon:not(.steps) .navicon:before,
+    nav .mobile-btn:checked ~ .mobile-icon:not(.steps) .navicon:after {
+      top: 0; }
 
 #hero {
   position: relative;
-  margin: 60px 0 0 0;
+  margin: 47px 0 0 0;
   padding: 0;
   width: 100%;
-  height: 93vh;
+  height: 65vh;
   background: url("/static/base/img/hero.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: calc(50% - 50px) 50%;
   background-size: cover; }
-  #hero .container {
-    color: #fff;
-    padding: 30vh 0;
-    margin: 0 0 0 9rem; }
-    #hero .container h1 {
-      font-size: 48px;
-      font-weight: 600; }
+  #hero .scroll-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto .75em auto;
+    width: 19px;
+    height: 35px;
+    z-index: 1; }
+    #hero .scroll-icon .outer {
+      width: 10px;
+      padding: 1px 2px;
+      height: 30px;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      box-sizing: content-box;
+      -webkit-box-sizing: content-box; }
+    #hero .scroll-icon .inner {
+      width: 7px;
+      height: 7px;
+      margin: 2px auto;
+      border-radius: 50%;
+      background-color: #fff;
+      animation-name: scroll;
+      animation-duration: 5s;
+      animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+      animation-iteration-count: infinite;
+      -webkit-animation-name: scroll;
+      -webkit-animation-duration: 5s;
+      -webkit-animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+      -webkit-animation-iteration-count: infinite; }
+
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1; }
+  25% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  50% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  75% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); } }
+
+@keyframes scroll {
+  0% {
+    opacity: 1; }
+  25% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  50% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  75% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); } }
 
 .my-btn {
   background-color: #181818;
   border: 3px solid #ffcb6b;
   font-weight: 600;
   color: #fff;
-  padding: .25rem 1.25rem; }
+  padding: .25rem 1.25rem;
+  border-radius: 5px; }
   .my-btn:hover {
     background-color: #fff;
     color: #181818; }
 
-.about {
+#cta {
+  border-top: 3em solid #dedede;
+  padding-top: 3em;
+  height: 20vh;
   text-align: center;
-  padding: 6em; }
-  .about h2 {
-    font-size: 48px;
-    font-weight: 400;
-    margin-bottom: 1em; }
-  .about p {
-    padding: 0 15%; }
+  margin-bottom: 3em; }
+  #cta h1 {
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 1em; }
 
-.contact {
-  margin: 25vh auto 0 auto; }
-  .contact .my-btn {
-    margin: 0 auto; }
-
-.thank-you {
-  padding: 25vh;
-  text-align: center; }
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 120px;
+main {
   background-color: #181818;
   color: #fff;
-  border-top: 45px solid #dedede;
-  padding: 1.5rem; }
-  footer .fab {
+  text-align: center;
+  padding: 1em 0 4em 0; }
+  main h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 1em; }
+  main p {
+    padding: 0 5%; }
+
+.contact-form {
+  padding-top: 2em;
+  text-align: left; }
+  .contact-form label {
+    margin: 2em 1em; }
+  .contact-form input[type=text], .contact-form input[type=email], .contact-form textarea {
+    width: 80%;
+    margin: 1em;
+    padding: .5em;
+    border: 2px solid #dedede;
+    border-radius: 5px;
+    display: inline-block;
+    outline: none; }
+  .contact-form input:focus, .contact-form textarea:focus {
+    border: 2px solid #77abff; }
+  .contact-form input[type=submit] {
+    display: block;
+    margin: 0 auto 2em auto; }
+
+.footer {
+  border-top: 2px solid #ffcb6b;
+  background-color: #181818;
+  padding: 1em 0 1em 0;
+  font-size: 16px;
+  text-align: center;
+  color: #fff; }
+  .footer p {
+    margin-bottom: 0; }
+  .footer .fab {
     color: #fff;
-    font-size: 24px; }
-  footer .social {
-    text-align: right; }
-    footer .social a:hover {
-      text-decoration: none; }
-  footer .footer-info {
-    text-align: left; }
+    font-size: 24px;
+    text-decoration: none; }
 
 /*# sourceMappingURL=home.css.map */

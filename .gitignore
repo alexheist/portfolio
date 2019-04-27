@@ -1,4 +1,4 @@
-# env stuff - unsure if I want to put the .env here
+# Env
 bin/
 include/
 lib/
@@ -6,6 +6,9 @@ share/
 .env
 *.pyc
 
+# Django Stuff
 db.sqlite3
 
+# Housekeeping
 *.old
+.*.sw*
