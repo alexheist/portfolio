@@ -11,10 +11,13 @@ html {
 
 body {
 	margin: 0;
+	position: relative;
+	min-height: 100vh;
 }
 
 .content-wrapper {
 	margin-top: 47px;
+	padding-bottom: 98px;
 }
 
 nav {
@@ -262,17 +265,19 @@ main {
 	}
 }
 
+// TODO: figure out better way to center form
+// and, style thank-you page
 .contact-form {
 	padding-top: 2em;
 	text-align: left;
 
 	label {
-		margin: 2em 1em;
+		margin: 2em 2em;
 	}
 
 	input[type=text], input[type=email], textarea {
 		width: 80%;
-		margin: 1em;
+		margin: 1em 2em;
 		padding: .5em;
 		border: 2px solid $accent;
 		border-radius: 5px;
@@ -285,12 +290,16 @@ main {
 	}
 
 	input[type=submit] {
+		-webkit-appearance: none;
 		display: block;
 		margin: 0 auto 2em auto;
 	}
 }
 
 .footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	border-top: 2px solid $secondary;
 	background-color: $primary;
 	padding: 1em 0 1em 0;
