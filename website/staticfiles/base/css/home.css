@@ -5,8 +5,12 @@ html {
 body {
   margin: 0; }
 
-.content-wrapper {
-  margin-top: 47px; }
+#page-container {
+  position: relative;
+  min-height: 100vh; }
+
+#content-wrapper {
+  padding: 47px 0 98px 0; }
 
 nav {
   position: fixed;
@@ -106,7 +110,7 @@ nav {
 
 #hero {
   position: relative;
-  margin: 47px 0 0 0;
+  margin: 0;
   padding: 0;
   width: 100%;
   height: 65vh;
@@ -212,26 +216,34 @@ main {
   main p {
     padding: 0 5%; }
 
-.contact-form {
+#contact .contact-form {
   padding-top: 2em;
   text-align: left; }
-  .contact-form label {
-    margin: 2em 1em; }
-  .contact-form input[type=text], .contact-form input[type=email], .contact-form textarea {
+  #contact .contact-form label {
+    margin-left: 10%; }
+  #contact .contact-form input[type=text], #contact .contact-form input[type=email], #contact .contact-form textarea {
     width: 80%;
-    margin: 1em;
+    margin: 1em auto;
     padding: .5em;
     border: 2px solid #dedede;
     border-radius: 5px;
-    display: inline-block;
+    display: block;
     outline: none; }
-  .contact-form input:focus, .contact-form textarea:focus {
+  #contact .contact-form input:focus, #contact .contact-form textarea:focus {
     border: 2px solid #77abff; }
-  .contact-form input[type=submit] {
+  #contact .contact-form input[type=submit] {
+    -webkit-appearance: none;
     display: block;
     margin: 0 auto 2em auto; }
 
+#thank-you {
+  padding: 2em;
+  text-align: center; }
+
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   border-top: 2px solid #ffcb6b;
   background-color: #181818;
   padding: 1em 0 1em 0;

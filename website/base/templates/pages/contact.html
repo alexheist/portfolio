@@ -2,29 +2,30 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<form method="post" class="contact-form">
-	{% csrf_token %}
-	
-	<label class="pull-left" for="name">{{ form.name.label }}:</label>
-	{{ form.name }}
-	<small class="error">{{ form.name.errors }}</small>
-	
-	<label class="pull-left" for="email">{{ form.email.label }}:</label>
-	{{ form.email }}
-	<small class="error">{{ form.email.errors }}</small>
-	
-	<label class="pull-left" for="subject">{{ form.subject.label }}:</label>
-	{{ form.subject }}
-	<small class="error">{{ form.subject.errors }}</small>
-	
-	<label class="pull-left" for="phone">{{ form.phone.label }}:</label>
-	{{ form.phone }}
-	<small class="error">{{ form.phone.errors }}</small>
-	
-	<label class="pull-left" for="message">{{ form.message.label }}:</label>
-	{{ form.message|attr:'rows:5' }}
-	<small class="error">{{ form.message.errors }}</small>
-	
-	<input class="my-btn" type="submit" value="Submit" />
-</form>
+<section id="contact">
+	<form method="post" class="contact-form">
+		{% csrf_token %}
+		<label class="pull-left" for="name">{{ form.name.label }}:</label>
+		{{ form.name }}
+		<small class="error">{{ form.name.errors }}</small>
+
+		<label class="pull-left" for="email">{{ form.email.label }}:</label>
+		{{ form.email }}
+		<small class="error">{{ form.email.errors }}</small>
+
+		<label class="pull-left" for="subject">{{ form.subject.label }}:</label>
+		{{ form.subject }}
+		<small class="error">{{ form.subject.errors }}</small>
+
+		<label class="pull-left" for="phone">{{ form.phone.label }}:</label>
+		{{ form.phone }}
+		<small class="error">{{ form.phone.errors }}</small>
+
+		<label class="pull-left" for="message">{{ form.message.label }}:</label>
+		{{ form.message|attr:'rows:5' }}
+		<small class="error">{{ form.message.errors }}</small>
+
+		<input class="my-btn" type="submit" value="Submit" />
+	</form>
+</section>
 {% endblock content %}
