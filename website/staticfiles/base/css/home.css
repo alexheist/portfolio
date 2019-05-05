@@ -219,14 +219,19 @@ main {
       grid-column-end: nml; }
       nav .brand p {
         background-color: rgba(255, 255, 255, 0); }
-      nav .brand ul {
-        display: inline;
-        grid-column-start: links;
-        grid-column-end: 4; }
     nav .mobile-btn, nav .mobile-icon {
       display: none; }
-    nav .navLinks li {
+    nav .navLinks {
+      overflow: visible;
+      border-bottom: none;
+      grid-column-start: links;
+      grid-column-end: 4;
+      display: grid;
+      grid-template-columns: 1fr 1fr; }
+    nav .navLinks li a {
       color: #181818; }
+    nav hr {
+      display: none; }
   main {
     display: grid;
     grid-row: 3/4; } }

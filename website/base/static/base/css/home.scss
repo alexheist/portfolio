@@ -308,23 +308,31 @@ main {
 			p {
 				background-color: rgba(255, 255, 255, 0);
 			}
-
-			ul {
-				display: inline;
-				grid-column-start: links;
-				grid-column-end: 4;
-			}
 		}
 
 		.mobile-btn, .mobile-icon {
 			display: none;
 		}
 
-		.navLinks li {
-				color: $primary;
-			}
+		.navLinks {
+			overflow: visible;
+			border-bottom: none;
+			grid-column-start: links;
+			grid-column-end: 4;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
 		}
+
+		.navLinks li a {
+				color: $primary;
+		}
+
+		hr {
+			display: none;
+		}
+	}
 	
+
 
 	main {
 		display: grid;
