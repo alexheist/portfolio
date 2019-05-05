@@ -211,13 +211,22 @@ main {
     grid-template-columns: auto;
     grid-template-rows: 48px 65vh 1fr 98px; }
   nav {
-    background-color: rgba(255, 255, 255, 0.95); }
-    nav .brand p {
-      background-color: rgba(255, 255, 255, 0); }
+    background-color: rgba(255, 255, 255, 0.95);
+    display: grid;
+    grid-template-columns: [brand] 12rem [nml] auto [links] 15rem; }
+    nav .brand {
+      grid-column-start: brand;
+      grid-column-end: nml; }
+      nav .brand p {
+        background-color: rgba(255, 255, 255, 0); }
+      nav .brand ul {
+        display: inline;
+        grid-column-start: links;
+        grid-column-end: 4; }
     nav .mobile-btn, nav .mobile-icon {
       display: none; }
-    nav ul {
-      display: inline; }
+    nav .navLinks li {
+      color: #181818; }
   main {
     display: grid;
     grid-row: 3/4; } }

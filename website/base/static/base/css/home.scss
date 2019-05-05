@@ -298,19 +298,33 @@ main {
 
 	nav {
 		background-color: rgba(255, 255, 255, .95);
+		display: grid;
+		grid-template-columns: [brand]12rem [nml]auto [links]15rem;
 
-		.brand p {
-			background-color: rgba(255, 255, 255, 0);
+		.brand{
+			grid-column-start: brand;
+			grid-column-end: nml;
+
+			p {
+				background-color: rgba(255, 255, 255, 0);
+			}
+
+			ul {
+				display: inline;
+				grid-column-start: links;
+				grid-column-end: 4;
+			}
 		}
 
 		.mobile-btn, .mobile-icon {
 			display: none;
 		}
 
-		ul {
-			display: inline;
+		.navLinks li {
+				color: $primary;
+			}
 		}
-	}
+	
 
 	main {
 		display: grid;
