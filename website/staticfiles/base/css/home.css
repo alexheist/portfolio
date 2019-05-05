@@ -201,4 +201,25 @@ main {
     font-size: 24px;
     text-decoration: none; }
 
+@media screen and (min-width: 634px) {
+  #hero {
+    background-position: center; } }
+
+@media screen and (min-width: 750px) {
+  #page-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 48px 65vh 1fr 98px; }
+  nav {
+    background-color: rgba(255, 255, 255, 0.95); }
+    nav .brand p {
+      background-color: rgba(255, 255, 255, 0); }
+    nav .mobile-btn, nav .mobile-icon {
+      display: none; }
+    nav ul {
+      display: inline; }
+  main {
+    display: grid;
+    grid-row: 3/4; } }
+
 /*# sourceMappingURL=home.css.map */
