@@ -299,7 +299,7 @@ main {
 	nav {
 		background-color: rgba(255, 255, 255, .95);
 		display: grid;
-		grid-template-columns: [brand]12rem [nml]auto [links]15rem;
+		grid-template-columns: [brand]12rem [nml]auto [links]12rem 2rem;
 
 		.brand{
 			grid-column-start: brand;
@@ -324,7 +324,11 @@ main {
 		}
 
 		.navLinks li a {
-				color: $primary;
+			color: $primary;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 
 		hr {

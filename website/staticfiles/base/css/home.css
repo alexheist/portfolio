@@ -213,7 +213,7 @@ main {
   nav {
     background-color: rgba(255, 255, 255, 0.95);
     display: grid;
-    grid-template-columns: [brand] 12rem [nml] auto [links] 15rem; }
+    grid-template-columns: [brand] 12rem [nml] auto [links] 12rem 2rem; }
     nav .brand {
       grid-column-start: brand;
       grid-column-end: nml; }
@@ -230,6 +230,8 @@ main {
       grid-template-columns: 1fr 1fr; }
     nav .navLinks li a {
       color: #181818; }
+      nav .navLinks li a:hover {
+        cursor: pointer; }
     nav hr {
       display: none; }
   main {
