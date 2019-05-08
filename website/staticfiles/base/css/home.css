@@ -159,6 +159,8 @@ main {
 #contact .contact-form {
   padding-top: 2em;
   text-align: left; }
+  #contact .contact-form h1 {
+    display: none; }
   #contact .contact-form label {
     margin-left: 10%; }
   #contact .contact-form input[type=text], #contact .contact-form input[type=email], #contact .contact-form textarea {
