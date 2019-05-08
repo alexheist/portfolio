@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<div id="hero">
+	<div id="hero-container">
+		<div id="hero-img">
+		</div>
+		<section id="cta">
+			<h1>Software Developer</h1>
+			<!-- TODO: create portfolio, and link it here -->
+			<a href="/contact"><button class="my-btn">Contact</button></a>
+		</section>
 	</div>
-	<section id="cta">
-		<h1>Software Developer</h1>
-		<!-- TODO: create portfolio, and link it here -->
-		<a href="/contact"><button class="my-btn">Contact</button></a>
-	</section>
 	<main>
 		<h2>Header</h2>
 		<p>{% lorem 75 w %}</p>
