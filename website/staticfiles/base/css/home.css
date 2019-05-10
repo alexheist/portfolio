@@ -272,6 +272,8 @@ main {
         grid-column: 2/4;
         grid-row: 1/2;
         justify-self: center; }
+      #contact .contact-form label {
+        margin-left: 5%; }
       #contact .contact-form #contact-name {
         grid-column: 2/3;
         grid-row: 2/3; }
@@ -287,6 +289,8 @@ main {
       #contact .contact-form #contact-message {
         grid-column: 2/4;
         grid-row: 4/5; }
+        #contact .contact-form #contact-message label {
+          margin-left: 3%; }
       #contact .contact-form input[type=submit] {
         grid-column: 2/4;
         grid-row: 5/6;
@@ -294,8 +298,8 @@ main {
       #contact .contact-form label {
         justify-self: start; }
       #contact .contact-form input[type=text], #contact .contact-form input[type=email] {
-        width: 80%; }
+        width: 90%; }
       #contact .contact-form textarea {
-        width: 90%; } }
+        width: 95%; } }
 
 /*# sourceMappingURL=home.css.map */

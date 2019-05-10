@@ -7,8 +7,18 @@ DEBUG = env.bool('DJANGO_DEBUG', default=True)
 ALLOWED_HOSTS = ['*']
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': str(ROOT_DIR.path('db.sqlite3')),
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(ROOT_DIR.path('db.sqlite3')),
+    }
 }
+#DATABASES = {
+#	'default': {
+#		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#		'NAME': 'portfolio_db',
+#		'USER': 'alex',
+#		'PASSWORD': 'developmentPa$$',
+#		'HOST': 'localhost',
+#		'PORT': '',
+#	}
+#}

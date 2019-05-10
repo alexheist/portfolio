@@ -33,8 +33,6 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
 	'website.base',
-	'website.contact',
-	'website.dashboard',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -120,3 +118,5 @@ MEDIA_ROOT = str(APPS_DIR('media'))
 REST_FRAMEWORK = {
 	'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 }
+
+GOOGLE_RECAPTCHA_SECRET_KEY='6LfKwKIUAAAAAGRTcgPaU-Cxj2TY2RqVdvEnjDC1'

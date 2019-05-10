@@ -392,6 +392,10 @@ main {
 				justify-self: center;
 			}
 
+			label {
+				margin-left: 5%; 
+			}
+
 			#contact-name {
 				grid-column: 2/3;
 				grid-row: 2/3;
@@ -415,6 +419,10 @@ main {
 			#contact-message {
 				grid-column: 2/4;
 				grid-row: 4/5;
+
+				label {
+					margin-left: 3%;
+				}
 			}
 
 			input[type=submit] {
@@ -428,11 +436,11 @@ main {
 			}
 
 			input[type=text], input[type=email] {
-				width: 80%;
+				width: 90%;
 			}
 
 			textarea {
-				width: 90%;
+				width: 95%;
 			}
 		}
 	}
