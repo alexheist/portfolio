@@ -259,12 +259,6 @@ main {
 			display: block;
 			margin: 0 auto 2em auto;
 		}
-
-		#recaptcha {
-			width: 82%;
-			margin: 0 auto 1em auto;
-			padding: 0;
-		}
 	}
 }
 
@@ -439,17 +433,9 @@ main {
 				}
 			}
 
-			#recaptcha {
-				grid-column: 2/4;
-				grid-row: 4/5;
-				align-self: center;
-				justify-self: center;
-				margin: 0 25%;
-			}
-
 			input[type=submit] {
 				grid-column: 2/4;
-				grid-row: 5/6;
+				grid-row: 4/5;
 				align-self: center;
 			}
 

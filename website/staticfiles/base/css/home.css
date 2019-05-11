@@ -181,10 +181,6 @@ main {
     -webkit-appearance: none;
     display: block;
     margin: 0 auto 2em auto; }
-  #contact .contact-form #recaptcha {
-    width: 82%;
-    margin: 0 auto 1em auto;
-    padding: 0; }
 
 #thank-you {
   padding: 2em;
@@ -301,15 +297,9 @@ main {
         grid-row: 3/4; }
         #contact .contact-form #contact-message label {
           margin-left: 3%; }
-      #contact .contact-form #recaptcha {
-        grid-column: 2/4;
-        grid-row: 4/5;
-        align-self: center;
-        justify-self: center;
-        margin: 0 25%; }
       #contact .contact-form input[type=submit] {
         grid-column: 2/4;
-        grid-row: 5/6;
+        grid-row: 4/5;
         align-self: center; }
       #contact .contact-form label {
         justify-self: start; }

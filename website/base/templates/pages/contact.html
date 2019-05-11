@@ -26,14 +26,14 @@
 			{{ form.phone }}
 			<small class="error">{{ form.phone.errors }}</small>
 		</div>
+		<div id="recaptcha">
+			{{ form.recaptcha }}
+			<small class="error">{{ form.recaptcha.errors }}</small>
+		</div>
 		<div id="contact-message">
 			<label class="pull-left" for="message">{{ form.message.label }}:</label>
 			{{ form.message|attr:'rows:5' }}
 			<small class="error">{{ form.message.errors }}</small>
-		</div>
-		<div id="recaptcha">
-			{{ form.recaptcha }}
-			<small class="error">{{ form.recaptcha.errors }}</small>
 		</div>
 		<input class="my-btn" type="submit" value="Submit" />
 	</form>

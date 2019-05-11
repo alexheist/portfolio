@@ -6,7 +6,7 @@ from captcha import fields, widgets
 
 class ContactForm(forms.ModelForm):
 	recaptcha = fields.ReCaptchaField(
-		widget = widgets.ReCaptchaV2Checkbox()
+		widget = widgets.ReCaptchaV3()
 	)
 
 	class Meta:
