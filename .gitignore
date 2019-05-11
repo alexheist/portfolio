@@ -7,9 +7,9 @@ share/
 .env.db
 *.pyc
 
-# Django Stuff
-db.sqlite3
-
 # Housekeeping
 *.old
 .*.sw*
+
+# Collected Staticfiles
+app/static/*
