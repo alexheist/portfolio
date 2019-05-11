@@ -1,21 +1,8 @@
+import os
 import environ
 
-#TODO: Create env variables to read from (secrets)
-
-ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('website')
-
-env = environ.Env()
-
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
-
-if READ_DOT_ENV_FILE:
-	env_file = str(ROOT_DIR.path('.env'))
-	print('Loading: {}'.format(env_file))
-	env.read_env(env_file)
-	print('The .env file has been loaded. See base.py for more information')
-
-DEBUG = env.bool('DJANGO_DEBUG', False)
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+APPS_DIR = os.path.join(ROOT_DIR, 'website')
 
 # Application definition
 DJANGO_APPS = (
@@ -100,10 +87,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+STATIC_ROOT = os.path.join(ROOT_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
-	str(APPS_DIR.path('static')),
+	os.path.join(APPS_DIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -112,15 +99,12 @@ STATICFILES_FINDERS = (
 	'sass_processor.finders.CssFinder',
 )
 
-SASS_PROCESSOR_ROOT = str(APPS_DIR('staticfiles'))
+SASS_PROCESSOR_ROOT = os.path.join(APPS_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = str(APPS_DIR('media'))
+MEDIA_ROOT = os.path.join(APPS_DIR, 'media')
 
 REST_FRAMEWORK = {
 	'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 }
-
-RECAPTCHA_PUBLIC_KEY = '6Lf676IUAAAAADMzDrQ0Quakf2KPsrHyDWT15snH'
-RECAPTCHA_PRIVATE_KEY = '6Lf676IUAAAAACJvc9iEgJP3UKjRIcgIdDmY_BUz'

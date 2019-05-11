@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  web:
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8000:8000
+    environment:
+      - DJANGO_WORK_ENV=config.settings.local
+      - DJANGO_SECRET_KEY=foobar
+      - DJANGO_DEBUG=1
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=portfolio_dev
+      - DB_USER=dev_user
+      - DB_PASSWORD=devUserPa$$w0rd
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DATABASE=postgres
+    depends_on:
+      - db
+  db:
+    image: postgres:11.2-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=dev_user
+      - POSTGRES_PASSWORD=devUserPa$$w0rd
+      - POSTGRES_DB=portfolio_dev
+
+volumes:
+  postgres_data:

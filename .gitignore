@@ -4,6 +4,7 @@ include/
 lib/
 share/
 .env
+.env.db
 *.pyc
 
 # Django Stuff
