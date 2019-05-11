@@ -3,8 +3,8 @@
 
 {% block content %}
 <section id="contact">
-	<form method="post" class="contact-form">
 		<h1>Contact Me</h1>
+	<form method="post" class="contact-form">
 		{% csrf_token %}
 		<div id="contact-name">
 			<label class="pull-left" for="name">{{ form.name.label }}:</label>
@@ -31,9 +31,10 @@
 			{{ form.message|attr:'rows:5' }}
 			<small class="error">{{ form.message.errors }}</small>
 		</div>
-		<!-- TODO: Style recaptcha -->
-		<script src='https://www.google.com/recaptcha/api.js'></script>
-		<div class="g-recaptcha" data-sitekey="6LfKwKIUAAAAAIU_4MCr7z8kO1nxGRIWj_3_OfGD"></div>
+		<div id="recaptcha">
+			{{ form.recaptcha }}
+			<small class="error">{{ form.recaptcha.errors }}</small>
+		</div>
 		<input class="my-btn" type="submit" value="Submit" />
 	</form>
 </section>

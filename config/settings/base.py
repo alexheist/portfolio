@@ -1,5 +1,7 @@
 import environ
 
+#TODO: Create env variables to read from (secrets)
+
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('website')
 
@@ -29,6 +31,7 @@ THIRD_PARTY_APPS = (
 	'rest_framework',
 	'sass_processor',
 	'widget_tweaks',
+	'captcha',
 )
 
 LOCAL_APPS = (
@@ -119,4 +122,5 @@ REST_FRAMEWORK = {
 	'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 }
 
-GOOGLE_RECAPTCHA_SECRET_KEY='6LfKwKIUAAAAAGRTcgPaU-Cxj2TY2RqVdvEnjDC1'
+RECAPTCHA_PUBLIC_KEY = '6LfKwKIUAAAAAIU_4MCr7z8kO1nxGRIWj_3_OfGD'
+RECAPTCHA_PRIVATE_KEY = '6LfKwKIUAAAAAGRTcgPaU-Cxj2TY2RqVdvEnjDC1'
