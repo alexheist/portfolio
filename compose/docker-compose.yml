@@ -2,10 +2,11 @@ version: '3.7'
 
 services:
   web:
-    build: ./app
+    image: portfolio-dev:1.0.0
+    build: ../app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./app/:/usr/src/app/
+      - ../app/:/usr/src/app/
     ports:
       - 8000:8000
     environment:

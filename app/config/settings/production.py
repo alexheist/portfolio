@@ -4,7 +4,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 DEBUG = int(os.environ.get('DJANGO_DEBUG', default=0))
 
-ALLOWED_HOSTS = ['alexheist.com', '192.168.0.2'] #TODO: remove ip address in production
+ALLOWED_HOSTS = ['alexheist.com']
 
 DATABASES = {
 	'default': {
