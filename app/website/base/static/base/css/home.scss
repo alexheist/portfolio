@@ -222,6 +222,10 @@ main {
 }
 
 #contact {
+	h1 {
+		display: none;
+	}
+
 	.contact-form {
 		padding-top: 2em;
 		text-align: left;
@@ -230,10 +234,6 @@ main {
 			color: red;
 			list-style-type: none;
 			padding: 0;
-		}
-
-		h1 {
-			display: none;
 		}
 
 		label {
