@@ -108,3 +108,7 @@ MEDIA_ROOT = os.path.join(APPS_DIR, 'media')
 REST_FRAMEWORK = {
 	'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 }
+
+WHITELIST = {
+	'version': os.environ.get('VERSION'),
+}

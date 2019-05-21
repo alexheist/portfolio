@@ -213,7 +213,7 @@ main {
     padding: 60px 0 98px 0; }
   nav {
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     display: grid;
     grid-template-columns: [brand] 12rem [nml] auto [links] 15rem 4em; }
     nav .brand {
@@ -260,7 +260,7 @@ main {
   main {
     background-color: #fff;
     color: #181818;
-    padding: 4em 30% 5em 30%; }
+    padding: 4em 25% 5em 25%; }
     main h2 {
       margin: 1em 0; }
   #contact {

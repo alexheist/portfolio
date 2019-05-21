@@ -1,5 +1,6 @@
 	<footer class="footer">
-		<a href="#" class="fab fa-linkedin" rel="nofollow"></a>
-		<p>v0.3.0</p>
+		<a href="https://www.linkedin.com/in/alexander-heist/" class="fab fa-linkedin" rel="nofollow"></a>
+		{% load whitelist %}
+		<p>{% get_setting 'version' %}</p>
 	</footer>
 </html>
