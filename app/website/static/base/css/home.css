@@ -156,6 +156,9 @@ main {
   main p {
     padding: 0 5%; }
 
+#contact h1 {
+  display: none; }
+
 #contact .contact-form {
   padding-top: 2em;
   text-align: left; }
@@ -163,8 +166,6 @@ main {
     color: red;
     list-style-type: none;
     padding: 0; }
-  #contact .contact-form h1 {
-    display: none; }
   #contact .contact-form label {
     margin-left: 10%; }
   #contact .contact-form input[type=text], #contact .contact-form input[type=email], #contact .contact-form textarea {
