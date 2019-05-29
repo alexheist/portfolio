@@ -2,10 +2,11 @@
 bin/
 include/
 lib/
-lib64/
+lib64
 share/
 *.env
 *.pyc
+pyvenv.cfg
 
 # Housekeeping
 *.old
