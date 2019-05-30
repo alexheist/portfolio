@@ -1,6 +1,6 @@
 from .base import *
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'local')
 
 DEBUG = int(os.environ.get('DJANGO_DEBUG', default=0))
 

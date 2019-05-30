@@ -1,13 +1,14 @@
+cffi==1.12.3
 Django==2.2
 django-appconf==1.0.3
 django-compressor==2.2
 django-sass-processor==0.7.3
 django-widget-tweaks==1.4.3
 djangorestframework==3.9.2
-gitdb2==2.0.5
-GitPython==2.1.11
 gunicorn==19.9.0
 libsass==0.18.0
+pycparser==2.19
+pygit2==0.28.2
 pytz==2019.1
 rcssmin==1.0.6
 rjsmin==1.0.12

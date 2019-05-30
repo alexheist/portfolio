@@ -1,5 +1,4 @@
 import os
-import environ
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 APPS_DIR = os.path.join(ROOT_DIR, 'website')
@@ -23,6 +22,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
 	'website.base',
+	'website.repotool',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -112,3 +112,5 @@ REST_FRAMEWORK = {
 WHITELIST = {
 	'version': os.environ.get('VERSION'),
 }
+
+REPOSITORY_DIR = os.path.join(APPS_DIR, 'repotool/repositories')
