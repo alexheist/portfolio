@@ -7,6 +7,7 @@ share/
 *.env
 *.pyc
 pyvenv.cfg
+*.git
 
 # Housekeeping
 *.old
