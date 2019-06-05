@@ -5,13 +5,13 @@ from django.conf import settings
 from website.base import models, forms
 
 class HomeView(TemplateView):
-	template_name = 'pages/index.html'
+	template_name = 'base/pages/index.html'
 
 class ContactView(CreateView):
-	template_name = 'pages/contact.html'
+	template_name = 'base/pages/contact.html'
 	form_class = forms.ContactForm
 
 	success_url = '/contact/thank-you'
 
 class ThankYouView(TemplateView):
-	template_name = 'pages/thank_you.html'
+	template_name = 'base/pages/thank_you.html'

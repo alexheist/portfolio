@@ -9,7 +9,9 @@ ENV DEVENV=local
 RUN apk update \
 	&& apk add --virtual build-deps gcc python3-dev musl-dev g++ \
 	&& apk add postgresql-dev \
-	&& pip install psycopg2
+	&& pip install psycopg2 \
+	&& apk add libffi-dev \
+	&& apk add libgit2-dev=0.28.2-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
 
 RUN pip install --upgrade pip
 COPY requirements/ /usr/src/app/requirements/
