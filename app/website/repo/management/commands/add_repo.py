@@ -23,7 +23,7 @@ class Command(BaseCommand):
 			try:
 				path = '{}/{}'.format(settings.REPOSITORY_DIR, url.split('/')[-1])
 				callbacks = pygit2.RemoteCallbacks(credentials)
-				pygit2.clone_repository(url, path, callbacks=callbacks)
+				pygit2.clone_repository(url, path[:-4], callbacks=callbacks)
 				self.stdout.write(self.style.SUCCESS('Success'))
 			except Exception as e:
 				self.stdout.write(e)

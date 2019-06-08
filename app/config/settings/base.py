@@ -113,4 +113,4 @@ WHITELIST = {
 	'version': os.environ.get('VERSION'),
 }
 
-REPOSITORY_DIR = os.path.join(APPS_DIR, 'repotool/repositories')
+REPOSITORY_DIR = os.path.join(APPS_DIR, 'repo/repositories')
