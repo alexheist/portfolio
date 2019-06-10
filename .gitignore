@@ -15,3 +15,6 @@ pyvenv.cfg
 
 # Collected Staticfiles
 app/static/*
+
+# Repositories
+app/website/repo/repositories/*
