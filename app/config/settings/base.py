@@ -1,5 +1,4 @@
 import os
-import environ
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 APPS_DIR = os.path.join(ROOT_DIR, 'website')
@@ -15,7 +14,6 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-	'rest_framework',
 	'sass_processor',
 	'widget_tweaks',
 	'captcha',
