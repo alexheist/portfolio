@@ -14,7 +14,6 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-	'rest_framework',
 	'sass_processor',
 	'widget_tweaks',
 	'captcha',
