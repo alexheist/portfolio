@@ -4,20 +4,18 @@ WORKDIR /usr/src/app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DEVENV=local
+ENV DEVENV=production
+
+COPY requirements.txt /usr/src/app/requirements.txt
 
 RUN apk update \
 	&& apk add --virtual build-deps gcc python3-dev musl-dev g++ \
 	&& apk add postgresql-dev \
 	&& pip install psycopg2 \
 	&& apk add libffi-dev \
-	&& apk add libgit2-dev=0.28.2-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
+        && pip install --upgrade pip \
+        && pip install -r requirements.txt
 
-RUN pip install --upgrade pip
-COPY requirements/ /usr/src/app/requirements/
-RUN pip install -r requirements/${DEVENV}.txt
-
-COPY ./scripts/entrypoint.sh /usr/src/app/scripts/entrypoint.sh
 COPY . /usr/src/app/
 
-ENTRYPOINT ["/usr/src/app/scripts/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/scripts/entrypoint.prod.sh"]

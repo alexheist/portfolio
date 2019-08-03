@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-	{% for r, d in repositories.items %}
-		<h3>{{ r }}: {{ d }}</h3>
-		<!-- d.listall_branches -->
-		<!-- d.listall_references # refs/heads/master, refs/tags/1.0.0, refs/remotes/origin/dev, etc -->
-	{% endfor %}
-{% endblock content %}
