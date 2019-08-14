@@ -22,7 +22,13 @@ function Hero() {
 function Elevator() {
     return (
         <div id="elevator">
-            <p>There's beauty in simplicity, but chaos is cathartic. I work with startups, and have developed many of their applications. I began writing software in 2016 and since then have programmed in many different languages for both personal and professional projects</p>
+            <p>
+               There’s beauty in simplicity, but chaos is cathartic. I work
+               with startups and small businesses building the web applications
+               to help them succeed. I began writing software in 2016, and
+               since then have developed in many different languages for both
+               personal and professional projects.
+            </p>
         </div>
     )
 }
@@ -50,10 +56,8 @@ class App extends React.Component {
             <div id="page-content">
                 <Nav />
                 <Hero />
-                <div id="main-content">
-                    <Elevator />
-                    <Contact />
-                </div>
+                <Elevator />
+                <Contact />
             </div>
         )
     }
