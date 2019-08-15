@@ -13,6 +13,12 @@ function Nav() {
 function Hero() {
     return (
         <div id="hero">
+            <svg id="top-right" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0,0 L 40,0 L 40,40" fill="none" stroke="#D4D3FF" stroke-width="20" />
+            </svg>
+            <svg id="bottom-left" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0,0 L 0,40 L 40,40" fill="none" stroke="#D4D3FF" stroke-width="20" />
+            </svg>
             <h1>Alex Heist</h1>
             <p>Software Developer</p>
         </div>
