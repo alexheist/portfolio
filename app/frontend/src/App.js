@@ -41,18 +41,22 @@ function Elevator() {
 
 function Contact() {
     return (
-        <div id="contact">
+        <form id="contact" method="post" action="">
             <h2>Contact Me</h2>
-            <form method="post" action="">
-                <label for="name">Name</label>
+            <div id="name-field">
+	            <label for="name">Name</label>
                 <input type="text" id="name" name="name" />
+            </div>
+            <div id="email-field">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" />
+            </div>
+            <div id="message-field">
                 <label for="message">Message</label>
                 <textarea name="message" id="message" rows="10" cols="50" />
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
+            </div>
+            <input id="form-submit" type="submit" value="Submit" />
+        </form>
     )
 }
 
