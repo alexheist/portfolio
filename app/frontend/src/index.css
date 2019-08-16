@@ -10,7 +10,7 @@ body {
 #page-content {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr;
-    grid-template-rows: .5fr 2fr 2fr 2fr;
+    grid-template-rows: .5fr 2fr 1.5fr 2fr;
     max-width: 1024px;
     margin: 0 auto;
 }
@@ -111,7 +111,8 @@ nav a {
 
     display: grid;
     grid-template-columns: 250px 250px;
-    grid-template-rows: 50px 30px 200px 30px;
+    grid-template-rows: 50px 35px 225px 30px;
+    margin-bottom: 2rem;
 }
 
 #contact h2 {
@@ -158,8 +159,8 @@ nav a {
 
 #contact label {
     position: relative;
-    top: 23px;
-    left: 10px;
+    top: 25px;
+    left: 5px;
 }
 
 #contact input[type="text"],
@@ -169,4 +170,7 @@ nav a {
     padding: 5px;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
+    color: #383838;
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
 }

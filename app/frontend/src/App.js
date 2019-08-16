@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 
 function Nav() {
     return (
         <nav>
             <a href="https://github.com/alexheist">GitHub</a>
-            <a href="https://linkedin.com/alexander-heist">LinkedIn</a>
+            <a href="https://linkedin.com/in/alexander-heist">LinkedIn</a>
         </nav>
     )
 }
@@ -14,10 +13,10 @@ function Hero() {
     return (
         <div id="hero">
             <svg id="top-right" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0,0 L 40,0 L 40,40" fill="none" stroke="#D4D3FF" stroke-width="20" />
+                <path d="M 0,0 L 40,0 L 40,40" fill="none" stroke="#D4D3FF" strokeWidth="20" />
             </svg>
             <svg id="bottom-left" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 0,0 L 0,40 L 40,40" fill="none" stroke="#D4D3FF" stroke-width="20" />
+                <path d="M 0,0 L 0,40 L 40,40" fill="none" stroke="#D4D3FF" strokeWidth="20" />
             </svg>
             <h1>Alex Heist</h1>
             <p>Software Developer</p>
@@ -39,25 +38,42 @@ function Elevator() {
     )
 }
 
-function Contact() {
-    return (
-        <form id="contact" method="post" action="">
-            <h2>Contact Me</h2>
-            <div id="name-field">
-	            <label for="name">Name</label>
-                <input type="text" id="name" name="name" />
-            </div>
-            <div id="email-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" />
-            </div>
-            <div id="message-field">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="10" cols="50" />
-            </div>
-            <input id="form-submit" type="submit" value="Submit" />
-        </form>
-    )
+class Contact extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(id) {
+        let label = document.getElementById(id);
+        let value = document.getElementById(id.slice(0,-6)).value;
+        if (value.length > 0) {
+            label.setAttribute('style', 'color: transparent');
+        } else {
+            label.setAttribute('style', 'color: #656565');
+        }
+    }
+
+    render () {
+        return (
+            <form id="contact" method="post" action="">
+                <h2>Contact Me</h2>
+                <div id="name-field">
+                    <label id="name-label" htmlFor="name">Name</label>
+                    <input type="text" id="name" name="name" onChange={() => this.handleChange("name-label")} />
+                </div>
+                <div id="email-field">
+                    <label id="email-label" htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" onChange={() => this.handleChange("email-label")} />
+                </div>
+                <div id="message-field">
+                    <label id="message-label" htmlFor="message">Message</label>
+                    <textarea name="message" id="message" rows="10" cols="50" onChange={() => this.handleChange("message-label")} />
+                </div>
+                <input id="form-submit" type="submit" value="Submit" />
+            </form>
+        );
+    }
 }
 
 class App extends React.Component {
