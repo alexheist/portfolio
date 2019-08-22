@@ -14,7 +14,4 @@ pyvenv.cfg
 .*.sw*
 
 # Collected Staticfiles
-app/static/*
-
-# Repositories
-app/website/repo/repositories/*
+backend/static/*

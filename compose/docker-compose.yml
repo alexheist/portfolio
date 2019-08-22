@@ -1,16 +1,27 @@
 version: '3.7'
 
 services:
-  web:
-    image: portfolio-dev:1.0.0
-    build: ../app
+  frontend:
+    image: portfolio-frontend:2.0.0
+    build: ../frontend
+    command: npm start
+    volumes:
+      - ../frontend:/usr/src/frontend/
+    ports:
+      - 3000:3000
+    environment:
+      - BACKEND=django
+    depends_on:
+      - backend
+  backend:
+    image: portfolio-backend:2.0.0
+    build: ../backend
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ../app/:/usr/src/app/
+      - ../backend/:/usr/src/backend/
     ports:
       - 8000:8000
     environment:
-      - DJANGO_WORK_ENV=config.settings.local
       - DJANGO_SECRET_KEY=foobar
       - DJANGO_DEBUG=1
       - DB_ENGINE=django.db.backends.postgresql
@@ -20,7 +31,7 @@ services:
       - DB_HOST=db
       - DB_PORT=5432
       - DATABASE=postgres
-      - VERSION=1.0.1
+      - VERSION=2.0.0
     depends_on:
       - db
   db:

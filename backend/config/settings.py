@@ -2,6 +2,10 @@ import os
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+DEBUG = os.environ.get('DJANGO_DEBUG')
+
 # Application definition
 DJANGO_APPS = (
     'django.contrib.admin',
@@ -16,10 +20,11 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'api',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+ALLOWED_HOSTS = ['*']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +71,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+    }
+}
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -73,14 +88,11 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(ROOT_DIR, 'static')
 
 STATICFILES_FINDERS = (
@@ -89,13 +101,4 @@ STATICFILES_FINDERS = (
 )
 
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(APPS_DIR, 'media')
-
-REST_FRAMEWORK = {
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
-}
-
-WHITELIST = {
-    'version': os.environ.get('VERSION'),
-}
+MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
