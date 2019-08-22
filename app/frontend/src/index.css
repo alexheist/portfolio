@@ -46,7 +46,7 @@ nav a {
     text-align: center;
     position: relative;
     height: 150px;
-    min-width: 340px;
+    min-width: 310px;
 
     display: grid;
     grid-template-columns: .5fr 3fr .5fr;
@@ -58,7 +58,7 @@ nav a {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    font-size: 48px;
+    font-size: 46px;
     font-weight: normal;
     margin: 0 auto 1rem auto;
     color: #383838;
@@ -101,6 +101,7 @@ nav a {
     justify-self: center;
     align-self: start;
     text-align: center;
+    padding: .65em;
 }
 
 #elevator p {
@@ -167,6 +168,7 @@ nav a {
     position: relative;
     top: 25px;
     left: 5px;
+    font-size: 16px;
 }
 
 #contact input[type="text"],
@@ -194,6 +196,10 @@ nav a {
         grid-column-start: 1;
         justify-self: end;
         margin: 1rem 0;
+    }
+
+    nav a {
+        padding: .75rem;
     }
 
     #hero {
