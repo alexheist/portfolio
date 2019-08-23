@@ -156,12 +156,28 @@ nav a {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 4;
+    grid-row-end: 5;
     justify-self: start;
     background: transparent;
     color: #656565;
     padding: 5px;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
+}
+
+#success-response {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    justify-self: start;
+    align-self: center;
+    text-align: center;
+    padding-left: 70px;
+}
+
+#success-response p {
+    margin: 0;
 }
 
 #contact label {
@@ -209,7 +225,7 @@ nav a {
     #contact {
         max-width: 90%;
         grid-template-columns: auto;
-        grid-template-rows: 80px 60px 60px auto 30px;
+        grid-template-rows: 80px 60px 60px 240px 30px;
     }
 
     #contact label {
@@ -240,5 +256,10 @@ nav a {
         grid-row-start: 5;
         padding: 0 15px;
         font-size: 14px;
+    }
+
+    #success-response {
+        grid-row-start: 6;
+        padding-left: 90px;
     }
 }

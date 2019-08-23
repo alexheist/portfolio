@@ -54,7 +54,7 @@ class Contact extends React.Component {
     handleChange(id) {
         let label = document.getElementById(id);
         let input = document.getElementById(id.slice(0,-6));
-        if (input.value.length > 0) {
+        if (input.value.length > 0 && window.innerWidth > 768 ) {
             label.setAttribute('style', 'color: transparent');
         } else {
             label.setAttribute('style', 'color: #656565');
@@ -78,7 +78,21 @@ class Contact extends React.Component {
                     "Content-Type": "application/json"
                 }
             }
-        );
+        )
+        .then(response => response.json())
+        .then(response =>  {
+            if (response === 201) {
+                document.getElementById("name").value = '';
+                document.getElementById("email").value = '';
+                document.getElementById("message").value = '';
+                if (window.innerWidth > 768 ) {
+                    document.getElementById("name-label").setAttribute('style', 'color:#656565;');
+                    document.getElementById("email-label").setAttribute('style', 'color:#656565;');
+                    document.getElementById("message-label").setAttribute('style', 'color:#656565;');
+                }
+                document.getElementById("success-response").innerHTML = "<p>Thank you, I will be in touch shortly</p>";
+            }
+        })
     }
 
     render () {
@@ -98,6 +112,7 @@ class Contact extends React.Component {
                     <textarea name="message" id="message" rows="10" cols="50" onChange={() => this.handleChange("message-label")} />
                 </div>
                 <input id="form-submit" type="submit" value="Submit" />
+                <span id="success-response"></span>
             </form>
         );
     }
