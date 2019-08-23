@@ -118,7 +118,7 @@ nav a {
 
     display: grid;
     grid-template-columns: 250px 250px;
-    grid-template-rows: 50px 35px 225px 30px;
+    grid-template-rows: 50px 35px 240px 30px;
     margin-bottom: 2rem;
 }
 

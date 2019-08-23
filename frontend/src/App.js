@@ -41,22 +41,49 @@ function Elevator() {
 class Contact extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            name: "",
+            email: "",
+            message: ""
+        };
+
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(id) {
         let label = document.getElementById(id);
-        let value = document.getElementById(id.slice(0,-6)).value;
-        if (value.length > 0) {
+        let input = document.getElementById(id.slice(0,-6));
+        if (input.value.length > 0) {
             label.setAttribute('style', 'color: transparent');
         } else {
             label.setAttribute('style', 'color: #656565');
         }
+        this.setState({
+            [input.name]: input.value
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        fetch("http://localhost:8000/api/leads/",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    "name": this.state.name,
+                    "email": this.state.email,
+                    "message": this.state.message
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        );
     }
 
     render () {
         return (
-            <form id="contact" method="post" action="">
+            <form id="contact" onSubmit={this.handleSubmit}>
                 <h2>Contact Me</h2>
                 <div id="name-field">
                     <label id="name-label" htmlFor="name">Name</label>
