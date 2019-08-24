@@ -44,7 +44,7 @@ class Contact extends React.Component {
         this.state = {
             name: "",
             email: "",
-            message: ""
+            message: "",
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -62,37 +62,58 @@ class Contact extends React.Component {
         this.setState({
             [input.name]: input.value
         });
+        document.getElementById("success-response").innerHTML = "";
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        fetch("http://localhost:8000/api/leads/",
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    "name": this.state.name,
-                    "email": this.state.email,
-                    "message": this.state.message
-                }),
-                headers: {
-                    "Content-Type": "application/json"
-                }
+
+        let clearForm = () => {
+            document.getElementById("name").value = '';
+            document.getElementById("email").value = '';
+            document.getElementById("message").value = '';
+            if (window.innerWidth > 768 ) {
+                document.getElementById("name-label").setAttribute('style', 'color:#656565;');
+                document.getElementById("email-label").setAttribute('style', 'color:#656565;');
+                document.getElementById("message-label").setAttribute('style', 'color:#656565;');
             }
-        )
-        .then(response => response.json())
-        .then(response =>  {
-            if (response === 201) {
-                document.getElementById("name").value = '';
-                document.getElementById("email").value = '';
-                document.getElementById("message").value = '';
-                if (window.innerWidth > 768 ) {
-                    document.getElementById("name-label").setAttribute('style', 'color:#656565;');
-                    document.getElementById("email-label").setAttribute('style', 'color:#656565;');
-                    document.getElementById("message-label").setAttribute('style', 'color:#656565;');
-                }
-                document.getElementById("success-response").innerHTML = "<p>Thank you, I will be in touch shortly</p>";
-            }
-        })
+        }
+
+        var data = JSON.parse(JSON.stringify({
+            "name": this.state.name,
+            "email": this.state.email,
+            "message": this.state.message,
+        }))
+
+        window.grecaptcha.ready(function() {
+            window.grecaptcha.execute(
+                "6Lf676IUAAAAADMzDrQ0Quakf2KPsrHyDWT15snH",
+                {action: 'homepage'}
+            ).then(function(token){
+                data.recaptchaToken = token;
+                data = JSON.stringify(data);
+                fetch("http://localhost:8000/api/leads/",
+                    {
+                        method: "POST",
+                        body: data,
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                )
+                .then(response => response.json())
+                .then(response =>  {
+                    console.log(response);
+                    if (response === 201) {
+                        clearForm();
+                        document.getElementById("success-response").innerHTML = "<p>Thank you, I will be in touch shortly</p>";
+                    } else if (response === 200) {
+                        clearForm();
+                        document.getElementById("success-response").innerHTML = "<p>Thank you</p>";
+                    }
+                })
+            });
+        });
     }
 
     render () {
@@ -113,12 +134,21 @@ class Contact extends React.Component {
                 </div>
                 <input id="form-submit" type="submit" value="Submit" />
                 <span id="success-response"></span>
+                <p id="recaptchaBranding">
+                    This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                </p>
             </form>
         );
     }
 }
 
 class App extends React.Component {
+    componentDidMount() {
+        const script = document.createElement('script')
+        script.src = `https://www.google.com/recaptcha/api.js?render=6Lf676IUAAAAADMzDrQ0Quakf2KPsrHyDWT15snH`;
+        document.body.appendChild(script);
+    }
+
     render() {
         return (
             <div id="page-content">
