@@ -56,6 +56,8 @@ class Contact extends React.Component {
         let input = document.getElementById(id.slice(0,-6));
         if (input.value.length > 0 && window.innerWidth > 768 ) {
             label.setAttribute('style', 'color: transparent');
+            label.innerHTML = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+            input.setAttribute('style', 'border-color: #CCCCCC;');
         } else {
             label.setAttribute('style', 'color: #656565');
         }
@@ -103,7 +105,14 @@ class Contact extends React.Component {
                 )
                 .then(response => response.json())
                 .then(response =>  {
-                    console.log(response);
+                    if (typeof response === 'object' && response !== null) {
+                        var input = document.getElementById(Object.keys(response)[0]);
+                        var label = document.getElementById(Object.keys(response)[0]+'-label');
+                        label.innerHTML = Object.values(response)[0][0];
+                        label.setAttribute('style', '');
+                        input.value = '';
+                        input.setAttribute('style', 'border-color: red;');
+                    }
                     if (response === 201) {
                         clearForm();
                         document.getElementById("success-response").innerHTML = "<p>Thank you, I will be in touch shortly</p>";
