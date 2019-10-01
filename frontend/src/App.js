@@ -28,11 +28,11 @@ function Elevator() {
     return (
         <div id="elevator">
             <p>
-               There’s beauty in simplicity, but chaos is cathartic. I work
-               with startups and small businesses building the web applications
-               to help them succeed. I began writing software in 2016, and
-               since then have developed in many different languages for both
-               personal and professional projects.
+                There’s beauty in simplicity, but chaos is cathartic. I work
+                with startups and small businesses building the web applications
+                to help them succeed. I began writing software in 2016, and
+                since then have developed in many different languages for both
+                personal and professional projects.
             </p>
         </div>
     )

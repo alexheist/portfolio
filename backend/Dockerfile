@@ -8,10 +8,10 @@ ENV PYTHONUNBUFFERED 1
 COPY requirements.txt /usr/src/backend/requirements.txt
 
 RUN apk update \
-	&& apk add --virtual build-deps gcc python3-dev musl-dev g++ \
-	&& apk add postgresql-dev \
-        && pip install --upgrade pip \
-        && pip install -r requirements.txt
+    && apk add --virtual build-deps gcc python3-dev musl-dev g++ \
+    && apk add postgresql-dev \
+    && pip install --upgrade pip \
+    && pip install -r requirements.txt
 
 COPY . /usr/src/app/
 
