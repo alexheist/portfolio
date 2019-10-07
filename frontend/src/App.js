@@ -89,7 +89,7 @@ class Contact extends React.Component {
 
         window.grecaptcha.ready(function() {
             window.grecaptcha.execute(
-                "6Lf676IUAAAAADMzDrQ0Quakf2KPsrHyDWT15snH",
+                process.env.REACT_APP_RECAPTCHA,
                 {action: 'homepage'}
             ).then(function(token){
                 data.recaptchaToken = token;
@@ -154,7 +154,7 @@ class Contact extends React.Component {
 class App extends React.Component {
     componentDidMount() {
         const script = document.createElement('script')
-        script.src = `https://www.google.com/recaptcha/api.js?render=6Lf676IUAAAAADMzDrQ0Quakf2KPsrHyDWT15snH`;
+        script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.REACT_APP_RECAPTCHA}`;
         document.body.appendChild(script);
     }
 
