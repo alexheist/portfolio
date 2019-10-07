@@ -2,14 +2,19 @@
 bin/
 include/
 lib/
-lib64/
+lib64
 share/
 *.env
 *.pyc
+pyvenv.cfg
+*.git
 
 # Housekeeping
 *.old
 .*.sw*
 
 # Collected Staticfiles
-app/static/*
+backend/static/*
+
+# Migrations
+migrations/

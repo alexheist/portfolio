@@ -1,16 +1,46 @@
 version: '3.7'
 
 services:
-  web:
-    image: portfolio-dev:1.0.0
-    build: ../app
-    command: python manage.py runserver 0.0.0.0:8000
+
+  # Proxy Server
+  # =======================
+  nginx:
+    build: ../nginx
     volumes:
-      - ../app/:/usr/src/app/
+      - backend_static:/usr/src/backend/static
+      - frontend_static:/usr/src/frontend
     ports:
-      - 8000:8000
+      - 1337:80
+    depends_on:
+      - backend
+      - frontend
+
+  # React Frontend
+  # =======================
+  frontend:
+    image: portfolio-frontend:2.0.0
+    build: ../frontend
+    command: npm run build
+    volumes:
+      - ../frontend:/usr/src/frontend/
+      - frontend_static:/usr/src/frontend/build
     environment:
-      - DJANGO_WORK_ENV=config.settings.local
+      - REACT_APP_RECAPTCHA=6Lf676IUAAAAADMzDrQ0Quakf2KPsrHyDWT15snH
+    depends_on:
+      - backend
+
+  # Django Backend
+  # =======================
+  backend:
+    image: portfolio-backend:2.0.0
+    build: ../backend
+    command: gunicorn config.wsgi:application -b 0.0.0.0:8000
+    volumes:
+      - ../backend/:/usr/src/backend/
+      - backend_static:/usr/src/backend/static
+    expose:
+      - 8000
+    environment:
       - DJANGO_SECRET_KEY=foobar
       - DJANGO_DEBUG=1
       - DB_ENGINE=django.db.backends.postgresql
@@ -19,10 +49,12 @@ services:
       - DB_PASSWORD=devUserPa$$w0rd
       - DB_HOST=db
       - DB_PORT=5432
-      - DATABASE=postgres
-      - VERSION=1.0.1
+      - RECAPTCHA_SECRET=6Lf676IUAAAAACJvc9iEgJP3UKjRIcgIdDmY_BUz
     depends_on:
       - db
+
+  # Postgres Database
+  # =======================
   db:
     image: postgres:11.2-alpine
     volumes:
@@ -34,3 +66,5 @@ services:
 
 volumes:
   postgres_data:
+  backend_static:
+  frontend_static:
