@@ -107,14 +107,20 @@ STATICFILES_FINDERS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(ROOT_DIR, 'media')
 
+# Rest Framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
     ]
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
+    'http://localhost:1337',
+    'http://127.0.0.1:1337',
 )
 
+# Google ReCaptcha
 RECAPTCHA_SECRET = os.environ.get('RECAPTCHA_SECRET')
+
+# Authentication
+LOGIN_REDIRECT_URL = '/api'
+SESSION_COOKIE_AGE = 3600

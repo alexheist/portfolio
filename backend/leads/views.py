@@ -1,9 +1,10 @@
 import requests
 from django.conf import settings
 from rest_framework import (
-    viewsets,
+    authentication,
     permissions,
-    status
+    status,
+    viewsets
 )
 from rest_framework.response import Response
 from . import models, serializers
@@ -14,10 +15,18 @@ class IsPostOrIsAuthenticated(permissions.BasePermission):
             return True
         return request.user.is_authenticated
 
+class CsrfExemptSessionAuth(authentication.SessionAuthentication):
+    def enforce_csrf(self, request):
+        return
+
 class LeadViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows leads to be viewed or edited
     """
+    authentication_classes = (
+        CsrfExemptSessionAuth,
+        authentication.BasicAuthentication
+    )
     permission_classes = [IsPostOrIsAuthenticated]
     queryset = models.Lead.objects.all().order_by('-timestamp')
     serializer_class = serializers.LeadSerializer
