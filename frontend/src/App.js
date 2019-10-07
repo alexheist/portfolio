@@ -3,8 +3,8 @@ import React from 'react';
 function Nav() {
     return (
         <nav>
-            <a href="https://github.com/alexheist">GitHub</a>
-            <a href="https://linkedin.com/in/alexander-heist">LinkedIn</a>
+            <a href="https://github.com/alexheist" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/alexander-heist" target="_blank">LinkedIn</a>
         </nav>
     )
 }
