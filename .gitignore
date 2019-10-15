@@ -18,3 +18,7 @@ backend/static/*
 
 # Migrations
 migrations/
+
+# Local-Specific
+localhost.crt
+localhost.key

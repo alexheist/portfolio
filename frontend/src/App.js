@@ -94,7 +94,7 @@ class Contact extends React.Component {
             ).then(function(token){
                 data.recaptchaToken = token;
                 data = JSON.stringify(data);
-                fetch("http://localhost:1337/api/leads/",
+                fetch("https://localhost:1337/api/leads/",
                     {
                         method: "POST",
                         body: data,
