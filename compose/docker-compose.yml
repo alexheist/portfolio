@@ -10,7 +10,7 @@ services:
       - backend_static:/usr/src/backend/static
       - frontend_static:/usr/src/frontend
     ports:
-      - 1337:80
+      - "1337:443"
     depends_on:
       - backend
       - frontend

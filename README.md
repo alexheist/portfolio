@@ -14,12 +14,16 @@ This portfolio was initially created just so that I can familiarize myself more 
 
 Initially, I was using Django's templating engine to handle HTML (Tag 1.0.0 & 1.0.1). This worked fine, but I wanted to learn how to use React.js, so I restructured the entire project to use React.js in the frontend and set up a Django Rest Framework API on the backend. I accomplished this utilizing `docker-compose` to orchestrate the containers.
 
+#### Adding SSL to my configuration
+
+I have configured a working local version of https for testing purposes, and have implemented CertBot to generate SSL certificates on my server.
+
 ---
 
 ### What I'm currently working on:
-#### Adding SSL to my server
+#### Researching Server-Side Rendering
 
-This is something that I have working on my development machine, but have been running into issues with using `certbot` to generate the SSL certificates on my server. This is due to some package conflicts between `yum` and `pip`, and is something I intend to have resolved soon.
+In order for me to benefit fully from running a blog on my website, I'm going to need to implement some sort of static content strategy for SEO purposes. Since React.js is rendered on the client, it will require some extra care to work as intended.
 
 ---
 
