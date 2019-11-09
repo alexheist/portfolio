@@ -13,14 +13,31 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Article
-        fields = '__all__'
+        fields = (
+            'author',
+            'title',
+            'markdown',
+            'thumbnail',
+            'slug',
+            'published',
+            'updated',
+        )
 
 class AuthorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Author
-        fields = '__all__'
+        fields = (
+            'name_first',
+            'name_last',
+            'brief',
+            'bio',
+        )
 
 class SocialSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Social
-        fields = '__all__'
+        fields = (
+            'author',
+            'platform',
+            'url',
+        )

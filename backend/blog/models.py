@@ -8,7 +8,7 @@ class Author(models.Model):
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return '{} {}'.format(self.name_first, self.name_last)
+        return '{}, {}'.format(self.name_last, self.name_first)
 
 class Social(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -24,9 +24,9 @@ class Article(models.Model):
     slug = models.CharField(max_length=127)
     thumbnail = models.ImageField()
     markdown = models.TextField()
-    published = models.DateField(default=timezone.now)
-    updated = models.DateField(default=timezone.now)
-    hits = models.IntegerField()
+    published = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now_add=True)
+    hits = models.IntegerField(default=0)
 
     def __str__(self):
         return '{} | {}'.format(self.published, self.title)
