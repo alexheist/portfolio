@@ -1,6 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+    Route,
+    Link,
+    Switch,
+    BrowserRouter as Router
+} from 'react-router-dom'
+import Landing from './landing';
+import Blog from './blog';
+import NotFound from './notfound';
 import './index.css';
-import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const routing = (
+    <Router>
+        <div>
+            <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route path="/blog" component={Blog} />
+                <Route component={NotFound} />
+            </Switch>
+        </div>
+    </Router>
+)
+
+ReactDOM.render(routing, document.getElementById('root'));

@@ -1,13 +1,5 @@
 import React from 'react';
-
-function Nav() {
-    return (
-        <nav>
-            <a href="https://github.com/alexheist" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/alexander-heist" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </nav>
-    )
-}
+import Nav from './nav';
 
 function Hero() {
     return (
@@ -151,7 +143,7 @@ class Contact extends React.Component {
     }
 }
 
-class App extends React.Component {
+class Landing extends React.Component {
     componentDidMount() {
         const script = document.createElement('script')
         script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.REACT_APP_RECAPTCHA}`;
@@ -170,4 +162,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Landing;
