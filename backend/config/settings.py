@@ -119,10 +119,14 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:1337',
-    'http://127.0.0.1:1337',
+    'http://localhost',
+    'http://127.0.0.1',
     'https://localhost',
     'https://127.0.0.1',
+    'http://localhost:1337',
+    'http://127.0.0.1:1337',
+    'https://localhost:1337',
+    'https://127.0.0.1:1337',
 )
 
 # Google ReCaptcha

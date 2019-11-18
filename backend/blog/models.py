@@ -30,3 +30,11 @@ class Article(models.Model):
 
     def __str__(self):
         return '{} | {}'.format(self.published, self.title)
+
+    def save(self, *args, **kwargs):
+        self.slug = '{}/{}/{}'.format(
+            self.published.year,
+            self.published.month,
+            self.slug
+        )
+        super(Article, self).save(*args, **kwargs)

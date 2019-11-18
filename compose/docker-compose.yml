@@ -8,6 +8,7 @@ services:
     build: ../nginx
     volumes:
       - backend_static:/usr/src/backend/static
+      - ../backend/media:/usr/src/backend/media
       - frontend_static:/usr/src/frontend
     ports:
       - "1337:443"
