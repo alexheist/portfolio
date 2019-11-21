@@ -14,6 +14,7 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Article
         fields = (
+            'url',
             'author',
             'title',
             'markdown',
@@ -27,6 +28,7 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Author
         fields = (
+            'url',
             'name_first',
             'name_last',
             'brief',

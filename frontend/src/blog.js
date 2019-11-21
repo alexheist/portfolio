@@ -39,11 +39,11 @@ class ArticleList extends React.Component {
     render() {
         return (
             this.state.articles.map(article => (
-                <div>
-                    <p>{article.title}</p>
-                    <p>{article.author}</p>
-                    <img src={article.thumbnail} height="300px" width="300px" />
-                </div>
+                <a href={article.slug} class="article">
+                    <img src={article.thumbnail} alt="Thumbnail image for article" />
+                    <h2>{article.title}</h2>
+                    <p>&rarr;</p>
+                </a>
             ))
         )
     }
@@ -58,7 +58,9 @@ class Blog extends React.Component {
             <div id="blog-content">
                 <Nav />
                 <Header />
-                <ArticleList />
+                <div id="article-list">
+                    <ArticleList />
+                </div>
             </div>
         )
     }

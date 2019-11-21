@@ -10,6 +10,7 @@ import Landing from './landing';
 import Blog from './blog';
 import NotFound from './notfound';
 import './index.css';
+import './blog.css';
 
 const routing = (
     <Router>
