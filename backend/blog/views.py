@@ -19,7 +19,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
         authentication.SessionAuthentication,
     )
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = models.Article.objects.all().order_by('-published')
+    queryset = models.Article.objects.all().order_by('-published', '-id')
     serializer_class = serializers.ArticleSerializer
 
 class SocialViewSet(viewsets.ModelViewSet):

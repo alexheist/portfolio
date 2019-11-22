@@ -24,7 +24,11 @@ class ArticleList extends React.Component {
         super(props);
         this.state = {
             articles: [],
+            articlesToShow: 3,
+            expanded: false
         };
+
+        this.showMore = this.showMore.bind(this);
     }
 
     componentDidMount() {
@@ -32,19 +36,36 @@ class ArticleList extends React.Component {
         .then(response => response.json())
         .then(data =>  {
             this.setState({articles: data});
-            console.log(data);
         });
+    }
+
+    showMore() {
+        this.state.articlesToShow === 3 ? (
+            this.setState({ articlesToShow: this.state.articles.length, expanded: true })
+        ) : (
+            this.setState({ articlesToShow: 3, expanded: false })
+        )
     }
 
     render() {
         return (
-            this.state.articles.map(article => (
-                <a href={article.slug} class="article">
-                    <img src={article.thumbnail} alt="Thumbnail image for article" />
-                    <h2>{article.title}</h2>
-                    <p>&rarr;</p>
+            <div id="article-list">
+                {this.state.articles.slice(0, this.state.articlesToShow).map(article => (
+                    <a href={article.slug} class="article">
+                        <img src={article.thumbnail} alt="Thumbnail image for article" />
+                        <h2>{article.title}</h2>
+                        <small>{article.published}</small>
+                        <p>&rarr;</p>
+                    </a>
+                ))}
+                <a id="showMoreBtn" onClick={this.showMore}>
+                    {this.state.expanded ? (
+                        <span>Show Less</span>
+                    ) : (
+                        <span>Show More</span>
+                    )}
                 </a>
-            ))
+            </div>
         )
     }
 }
@@ -58,9 +79,7 @@ class Blog extends React.Component {
             <div id="blog-content">
                 <Nav />
                 <Header />
-                <div id="article-list">
-                    <ArticleList />
-                </div>
+                <ArticleList />
             </div>
         )
     }

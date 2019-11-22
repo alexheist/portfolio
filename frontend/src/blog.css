@@ -50,7 +50,7 @@
     margin-left: 2rem;
 
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .article img {
@@ -62,6 +62,14 @@
     width: 100%;
 }
 
+.article small {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    align-self: end;
+    justify-self: start;
+    margin-left: 2.5rem;
+}
+
 .article p {
     grid-row-start: 1;
     grid-column-start: 2;
@@ -69,6 +77,11 @@
     justify-self: end;
     font-size: 1.75em;
     margin: 0;
+}
+
+#showMoreBtn {
+    margin: 2rem;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
