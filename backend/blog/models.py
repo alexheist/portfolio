@@ -8,7 +8,7 @@ class Author(models.Model):
     bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return '{}, {}'.format(self.name_last, self.name_first)
+        return '{} {}'.format(self.name_first, self.name_last)
 
 class Social(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)

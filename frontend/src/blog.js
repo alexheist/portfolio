@@ -4,8 +4,9 @@ import {
     Link,
     Switch,
     BrowserRouter as Router
-} from 'react-router-dom'
+} from 'react-router-dom';
 import Nav from './nav';
+const ReactMarkdown = require('react-markdown');
 
 const Slug = ({ match }) => <p>{match.params.slug}</p>
 
@@ -56,7 +57,7 @@ class ArticleList extends React.Component {
         return (
             <div id="article-list">
                 {this.state.articles.slice(0, this.state.articlesToShow).map(article => (
-                    <Link exact={true} className="article-link" to={{pathname: "/blog/"+article.slug}}>
+                    <Link exact={true} className="article-link" to={{pathname: "/blog/"+article.slug, data: article}}>
                         <img src={article.thumbnail} alt="Thumbnail image for article" />
                         <h2>{article.title}</h2>
                         <small>{article.published}</small>
@@ -78,15 +79,30 @@ class ArticleList extends React.Component {
 class Article extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            article: [],
-        };
-        console.log(props);
+        this.state = {};
     }
 
     render() {
+        const article = this.props.location.data;
+        if (article === undefined) {
+//            fetch("https://localhost:1337/api/article/")
+//            .then(response => response.json())
+//            .then(data =>  {
+//                this.setState({articles: data});
+//            });
+            console.log("TODO: fetch article if no article");
+        };
         return (
-            <h1>Article Page</h1>
+            <div id="article">
+                <div id="article-details">
+                    <h1>{article.title}</h1>
+                    <p>by {article.author}</p>
+                    <small>{article.published}</small>
+                </div>
+                <img src={article.thumbnail} alt="Article Image" />
+                <ReactMarkdown className="article-content" source={article.markdown} />
+                <script>hljs.highlight()</script>
+            </div>
         )
     }
 }
