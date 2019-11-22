@@ -1,5 +1,10 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import {
+    Route,
+    Link,
+    Switch,
+    BrowserRouter as Router
+} from 'react-router-dom'
 import Nav from './nav';
 
 const Slug = ({ match }) => <p>{match.params.slug}</p>
@@ -51,12 +56,12 @@ class ArticleList extends React.Component {
         return (
             <div id="article-list">
                 {this.state.articles.slice(0, this.state.articlesToShow).map(article => (
-                    <a href={article.slug} class="article">
+                    <Link exact={true} className="article-link" to={{pathname: "/blog/"+article.slug}}>
                         <img src={article.thumbnail} alt="Thumbnail image for article" />
                         <h2>{article.title}</h2>
                         <small>{article.published}</small>
                         <p>&rarr;</p>
-                    </a>
+                    </Link>
                 ))}
                 <a id="showMoreBtn" onClick={this.showMore}>
                     {this.state.expanded ? (
@@ -70,6 +75,22 @@ class ArticleList extends React.Component {
     }
 }
 
+class Article extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            article: [],
+        };
+        console.log(props);
+    }
+
+    render() {
+        return (
+            <h1>Article Page</h1>
+        )
+    }
+}
+
 class Blog extends React.Component {
     render() {
         console.log(this.props);
@@ -79,7 +100,12 @@ class Blog extends React.Component {
             <div id="blog-content">
                 <Nav />
                 <Header />
-                <ArticleList />
+                <Router>
+                    <Switch>
+                        <Route exact path="/blog" component={ArticleList} />
+                        <Route path="/blog/:year/:month/:slug" component={Article} />
+                    </Switch>
+                </Router>
             </div>
         )
     }

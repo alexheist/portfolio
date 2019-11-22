@@ -21,7 +21,7 @@ class Social(models.Model):
 class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     title = models.CharField(max_length=63)
-    slug = models.CharField(max_length=127)
+    slug = models.CharField(max_length=127, unique=True)
     thumbnail = models.ImageField()
     markdown = models.TextField()
     published = models.DateField(auto_now_add=True)
