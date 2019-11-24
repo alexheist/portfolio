@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router
 } from 'react-router-dom';
 import Nav from './nav';
+import CodeBlock from './codeblock';
 const ReactMarkdown = require('react-markdown');
 
 function Header() {
@@ -56,7 +57,11 @@ class Article extends React.Component {
                         <small>{this.state.article.published}</small>
                     </div>
                     <img src={this.state.article.thumbnail} alt="Article Image" />
-                    <ReactMarkdown className="article-content" source={this.state.article.markdown} />
+                    <ReactMarkdown
+                        className="article-content"
+                        source={this.state.article.markdown}
+                        renderers={{ code: CodeBlock }}
+                    />
                 </div>
             </div>
         )
