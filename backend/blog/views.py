@@ -1,10 +1,10 @@
 from rest_framework import (
     authentication,
     permissions,
-    viewsets
+    viewsets,
+    response
 )
 from . import models, serializers
-
 
 class AuthorViewSet(viewsets.ModelViewSet):
     authentication_classes = (
@@ -29,3 +29,9 @@ class SocialViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     queryset = models.Social.objects.all().order_by('-author__name_last')
     serializer_class = serializers.SocialSerializer
+
+class ArticleBySlug(viewsets.ViewSet):
+    def retrieve(self, request, pk=None):
+        article = models.Article.objects.get(slug=pk)
+        serializer = serializers.ArticleSerializer(article, context={'request': request})
+        return response.Response(serializer.data)

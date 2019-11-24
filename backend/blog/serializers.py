@@ -2,7 +2,7 @@ from rest_framework import serializers
 from . import models
 
 class ArticleSerializer(serializers.HyperlinkedModelSerializer):
-    author = serializers.StringRelatedField()
+    author_name = serializers.StringRelatedField()
     published = serializers.DateField(
         format = "%m/%d/%Y",
         required = False,
@@ -18,6 +18,7 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
             'url',
             'id',
             'author',
+            'author_name',
             'title',
             'markdown',
             'thumbnail',

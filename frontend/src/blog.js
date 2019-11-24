@@ -38,7 +38,7 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://localhost:1337/api/articles/")
+        fetch("https://localhost/api/articles/")
         .then(response => response.json())
         .then(data =>  {
             this.setState({articles: data});
@@ -57,51 +57,24 @@ class ArticleList extends React.Component {
         return (
             <div id="article-list">
                 {this.state.articles.slice(0, this.state.articlesToShow).map(article => (
-                    <Link exact={true} className="article-link" to={{pathname: "/blog/"+article.slug, data: article}}>
+                    <a class="article-link" href={"/blog/"+article.slug}>
                         <img src={article.thumbnail} alt="Thumbnail image for article" />
                         <h2>{article.title}</h2>
                         <small>{article.published}</small>
                         <p>&rarr;</p>
-                    </Link>
+                    </a>
                 ))}
                 <a id="showMoreBtn" onClick={this.showMore}>
-                    {this.state.expanded ? (
-                        <span>Show Less</span>
+                    {this.state.articles.length > 4 ? (
+                        this.state.expanded ? (
+                            <span>Show Less</span>
+                        ) : (
+                            <span>Show More</span>
+                        )
                     ) : (
-                        <span>Show More</span>
+                        <span></span>
                     )}
                 </a>
-            </div>
-        )
-    }
-}
-
-class Article extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
-    render() {
-        const article = this.props.location.data;
-        if (article === undefined) {
-//            fetch("https://localhost:1337/api/article/")
-//            .then(response => response.json())
-//            .then(data =>  {
-//                this.setState({articles: data});
-//            });
-            console.log("TODO: fetch article if no article");
-        };
-        return (
-            <div id="article">
-                <div id="article-details">
-                    <h1>{article.title}</h1>
-                    <p>by {article.author}</p>
-                    <small>{article.published}</small>
-                </div>
-                <img src={article.thumbnail} alt="Article Image" />
-                <ReactMarkdown className="article-content" source={article.markdown} />
-                <script>hljs.highlight()</script>
             </div>
         )
     }
@@ -116,12 +89,7 @@ class Blog extends React.Component {
             <div id="blog-content">
                 <Nav />
                 <Header />
-                <Router>
-                    <Switch>
-                        <Route exact path="/blog" component={ArticleList} />
-                        <Route path="/blog/:year/:month/:slug" component={Article} />
-                    </Switch>
-                </Router>
+                <ArticleList />
             </div>
         )
     }

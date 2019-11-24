@@ -20,6 +20,7 @@ class Social(models.Model):
 
 class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author_name = models.CharField(max_length=62, blank=True)
     title = models.CharField(max_length=63)
     slug = models.CharField(max_length=127, unique=True)
     thumbnail = models.ImageField()
@@ -32,9 +33,10 @@ class Article(models.Model):
         return '{} | {}'.format(self.published, self.title)
 
     def save(self, *args, **kwargs):
-        self.slug = '{}/{}/{}'.format(
+        self.slug = '{}-{}-{}'.format(
             self.published.year,
             self.published.month,
             self.slug
         )
+        self.author_name = f'{self.author.name_first} {self.author.name_last}'
         super(Article, self).save(*args, **kwargs)

@@ -11,6 +11,7 @@ router.register(r'leads', leads.views.LeadViewSet)
 router.register(r'articles', blog.views.ArticleViewSet)
 router.register(r'authors', blog.views.AuthorViewSet)
 router.register(r'social', blog.views.SocialViewSet)
+router.register(r'slug', blog.views.ArticleBySlug, basename='slug')
 
 urlpatterns = [
     path('api/', include(router.urls)),
