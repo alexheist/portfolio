@@ -65,7 +65,7 @@ class ArticleList extends React.Component {
                     </a>
                 ))}
                 <a id="showMoreBtn" onClick={this.showMore}>
-                    {this.state.articles.length > 4 ? (
+                    {this.state.articles.length > 3 ? (
                         this.state.expanded ? (
                             <span>Show Less</span>
                         ) : (

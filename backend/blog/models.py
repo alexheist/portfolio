@@ -4,19 +4,9 @@ from django.utils import timezone
 class Author(models.Model):
     name_first = models.CharField(max_length=31)
     name_last = models.CharField(max_length=31)
-    brief = models.CharField(max_length=280, null=True, blank=True)
-    bio = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return '{} {}'.format(self.name_first, self.name_last)
-
-class Social(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    platform = models.CharField(max_length=31)
-    url = models.CharField(max_length=255)
-
-    def __str__(self):
-        return '[{}]({})'.format(self.platform, self.url)
+        return f'{self.name_first} {self.name_last}'
 
 class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -30,13 +20,9 @@ class Article(models.Model):
     hits = models.IntegerField(default=0)
 
     def __str__(self):
-        return '{} | {}'.format(self.published, self.title)
+        return f'{self.published} | {self.title}'
 
     def save(self, *args, **kwargs):
-        self.slug = '{}-{}-{}'.format(
-            self.published.year,
-            self.published.month,
-            self.slug
-        )
+        self.slug = f'{self.published.year}-{self.published.month}-{self.slug}'
         self.author_name = f'{self.author.name_first} {self.author.name_last}'
         super(Article, self).save(*args, **kwargs)

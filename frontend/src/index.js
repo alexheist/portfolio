@@ -15,14 +15,12 @@ import './blog.css';
 
 const routing = (
     <Router>
-        <div>
-            <Switch>
-                <Route exact path="/" component={Landing} />
-                <Route path="/blog/:slug" component={Article} />
-                <Route exact path="/blog" component={Blog} />
-                <Route component={NotFound} />
-            </Switch>
-        </div>
+        <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/blog/:slug" component={Article} />
+            <Route exact path="/blog" component={Blog} />
+            <Route component={NotFound} />
+        </Switch>
     </Router>
 )
 

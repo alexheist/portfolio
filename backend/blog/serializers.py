@@ -34,15 +34,4 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
             'url',
             'name_first',
             'name_last',
-            'brief',
-            'bio',
-        )
-
-class SocialSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = models.Social
-        fields = (
-            'author',
-            'platform',
-            'url',
         )
