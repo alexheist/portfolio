@@ -18,16 +18,18 @@ Initially, I was using Django's templating engine to handle HTML (Tag 1.0.0 & 1.
 
 I have configured a working local version of https for testing purposes, and have implemented CertBot to generate SSL certificates on my server.
 
+#### Add Blog
+
+I have added a new set of endpoints for the API for the soon-to-be-released blog, as well as new React components. There is a `/blog` URL that will retrieve a list of published articles, in addition to `/blog/:slug` URL for displaying a specific article.
+
 ---
 
 ### What I'm currently working on:
-#### Researching Server-Side Rendering
-
-In order for me to benefit fully from running a blog on my website, I'm going to need to implement some sort of static content strategy for SEO purposes. Since React.js is rendered on the client, it will require some extra care to work as intended.
+TBD
 
 ---
 
 ### My future plans:
-#### Add blog to my website
+#### Implement Prerender.io on server
 
-React.js isn't particularly great for this due to SEO reasons, however, I hope to mitigate a lot of the problem by implementing server-side rendering of those components.
+React.js isn't particularly great for this due to SEO reasons, however, I hope to mitigate a lot of the problem by implementing prerender.io.
