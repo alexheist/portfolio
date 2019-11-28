@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils import timezone
 
 class Author(models.Model):
@@ -10,19 +12,18 @@ class Author(models.Model):
 
 class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    author_name = models.CharField(max_length=62, blank=True)
     title = models.CharField(max_length=63)
     slug = models.CharField(max_length=127, unique=True)
     thumbnail = models.ImageField()
     markdown = models.TextField()
-    published = models.DateField(auto_now_add=True)
-    updated = models.DateField(auto_now_add=True)
+    published = models.DateField()
+    updated = models.DateField(blank=True, null=True)
     hits = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.published} | {self.title}'
 
-    def save(self, *args, **kwargs):
-        self.slug = f'{self.published.year}-{self.published.month}-{self.slug}'
-        self.author_name = f'{self.author.name_first} {self.author.name_last}'
-        super(Article, self).save(*args, **kwargs)
+@receiver(post_save, sender=Article)
+def create_slug(sender, instance, created, **kwargs):
+    if created:
+        instance.slug = f'{instance.published.year}-{instance.published.month}-{instance.slug}'

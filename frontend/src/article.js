@@ -33,16 +33,20 @@ class Article extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
-        console.log(this.props.match);
-        fetch("https://localhost/api/slug/"+this.props.match.params.slug)
+        fetch("https://localhost/api/published/"+this.props.match.params.slug)
         .then(response => response.json())
         .then(data =>  {
-            console.log(data);
             this.setState({article: data});
         });
-        console.log("TODO: fetch article if no article");
-        console.log(this.state.article);
+        fetch("https://localhost/api/published/"+this.props.match.params.slug+"/",
+            {
+                method: "PATCH",
+                body: JSON.stringify({"article": this.props.match.params.slug}),
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            }
+        );
     }
 
     render() {
@@ -53,7 +57,7 @@ class Article extends React.Component {
                 <div id="article">
                     <div id="article-details">
                         <h1>{this.state.article.title}</h1>
-                        <p>by {this.state.article.author_name}</p>
+                        <p>by {this.state.article.name_first} {this.state.article.name_last}</p>
                         <small>{this.state.article.published}</small>
                     </div>
                     <img src={this.state.article.thumbnail} alt="Article Image" />

@@ -10,7 +10,7 @@ router = routers.DefaultRouter()
 router.register(r'leads', leads.views.LeadViewSet)
 router.register(r'articles', blog.views.ArticleViewSet)
 router.register(r'authors', blog.views.AuthorViewSet)
-router.register(r'slug', blog.views.ArticleBySlug, basename='slug')
+router.register(r'published', blog.views.PublishedArticles, basename='published')
 
 urlpatterns = [
     path('api/', include(router.urls)),

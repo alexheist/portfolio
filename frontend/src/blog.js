@@ -38,7 +38,7 @@ class ArticleList extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://localhost/api/articles/")
+        fetch("https://localhost/api/published/")
         .then(response => response.json())
         .then(data =>  {
             this.setState({articles: data});
