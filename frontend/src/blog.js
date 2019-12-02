@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-    Route,
-    Link,
-    Switch,
-    BrowserRouter as Router
-} from 'react-router-dom';
 import Nav from './nav';
-const ReactMarkdown = require('react-markdown');
-
-const Slug = ({ match }) => <p>{match.params.slug}</p>
 
 function Header() {
     return (
@@ -56,25 +47,27 @@ class ArticleList extends React.Component {
     render() {
         return (
             <div id="article-list">
-                {this.state.articles.slice(0, this.state.articlesToShow).map(article => (
-                    <a class="article-link" href={"/blog/"+article.slug}>
-                        <img src={article.thumbnail} alt="Thumbnail image for article" />
-                        <h2>{article.title}</h2>
-                        <small>{article.published}</small>
-                        <p>&rarr;</p>
-                    </a>
-                ))}
-                <a id="showMoreBtn" onClick={this.showMore}>
-                    {this.state.articles.length > 3 ? (
-                        this.state.expanded ? (
+                {this.state.articles.length === 0 ? (<h2 style={{fontWeight: 300}}>Coming Soon</h2>) : (
+                    this.state.articles.slice(0, this.state.articlesToShow).map(article => (
+                        <a class="article-link" href={"/blog/"+article.slug}>
+                            <img src={article.thumbnail} alt="Thumbnail for article" />
+                            <h2>{article.title}</h2>
+                            <small>{article.published}</small>
+                            <p>&rarr;</p>
+                        </a>
+                    ))
+                )}
+                {this.state.articles.length > 3 ? (
+                    <button type="button" id="showMoreBtn" onClick={this.showMore}>
+                        {this.state.expanded ? (
                             <span>Show Less</span>
                         ) : (
                             <span>Show More</span>
-                        )
-                    ) : (
-                        <span></span>
-                    )}
-                </a>
+                        )}
+                    </button>
+                ) : (
+                    <span style={{margin: 2+"rem"}}></span>
+                )}
             </div>
         )
     }

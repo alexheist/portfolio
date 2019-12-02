@@ -1,10 +1,4 @@
 import React from 'react';
-import {
-    Route,
-    Link,
-    Switch,
-    BrowserRouter as Router
-} from 'react-router-dom';
 import Nav from './nav';
 import CodeBlock from './codeblock';
 const ReactMarkdown = require('react-markdown');
@@ -60,7 +54,7 @@ class Article extends React.Component {
                         <p>by {this.state.article.name_first} {this.state.article.name_last}</p>
                         <small>{this.state.article.published}</small>
                     </div>
-                    <img src={this.state.article.thumbnail} alt="Article Image" />
+                    <img src={this.state.article.thumbnail} alt="Article Thumbnail" />
                     <ReactMarkdown
                         className="article-content"
                         source={this.state.article.markdown}
