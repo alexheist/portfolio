@@ -30,7 +30,7 @@ class PublishedArticles(viewsets.ViewSet):
 
     def list(self, request):
         queryset = models.Article.objects.filter(
-            published__lte = timezone.now().date(),
+            published__lte = timezone.localtime().date(),
         ).order_by('-published', '-id')
         serializer = serializers.PublishedSerializer(
             queryset,
