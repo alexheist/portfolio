@@ -8,7 +8,8 @@ body {
     background-color: #fefefe;
     font-family: 'Montserrat', sans-serif;
     color: #656565;
-    max-width: 100vw;
+    width: 100vw;
+    max-width: 100%;
     margin: 0;
 }
 
@@ -22,10 +23,11 @@ body {
 }
 
 nav {
-    grid-column-start: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    justify-self: start;
+    justify-self: end;
     align-self: start;
     margin: 1rem;
 }

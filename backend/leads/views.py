@@ -7,6 +7,7 @@ from rest_framework import (
     viewsets
 )
 from rest_framework.response import Response
+from config import authentication as c_auth
 from . import models, serializers
 
 class IsPostOrIsAuthenticated(permissions.BasePermission):
@@ -15,16 +16,12 @@ class IsPostOrIsAuthenticated(permissions.BasePermission):
             return True
         return request.user.is_authenticated
 
-class CsrfExemptSessionAuth(authentication.SessionAuthentication):
-    def enforce_csrf(self, request):
-        return
-
 class LeadViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows leads to be viewed or edited
     """
     authentication_classes = (
-        CsrfExemptSessionAuth,
+        c_auth.CsrfExemptSessionAuth,
         authentication.BasicAuthentication
     )
     permission_classes = [IsPostOrIsAuthenticated]

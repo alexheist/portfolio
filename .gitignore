@@ -13,8 +13,9 @@ pyvenv.cfg
 *.old
 .*.sw*
 
-# Collected Staticfiles
+# Collected Static & Media
 backend/static/*
+backend/media/*
 
 # Migrations
 migrations/
