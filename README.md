@@ -20,7 +20,7 @@ I have configured a working local version of https for testing purposes, and hav
 
 #### Add Blog
 
-I have added a new set of endpoints for the API for the soon-to-be-released blog, as well as new React components. There is a `/blog` URL that will retrieve a list of published articles, in addition to `/blog/:slug` URL for displaying a specific article.
+I have added a new set of endpoints for the API for the soon-to-be-released blog, as well as new React components. I implemented React Routers to create a `/blog` URL that will retrieves a list of published articles in addition to `/blog/:slug` URL for displaying a specific article. I also implemented `react-markdown` and `react-syntax-highlighter` to style my technical articles.
 
 ---
 
@@ -30,6 +30,4 @@ TBD
 ---
 
 ### My future plans:
-#### Implement Prerender.io on server
-
-React.js isn't particularly great for this due to SEO reasons, however, I hope to mitigate a lot of the problem by implementing prerender.io.
+Building a robust time-tracker to replace the existing website that I wrote for Vidicode.pro's internal use. It will be showcased on this portfolio website on the landing page in a 'Projects' section.
