@@ -20,7 +20,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     authentication_classes = (
         authentication.SessionAuthentication,
     )
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = models.Article.objects.all().order_by('-published', '-id')
     serializer_class = serializers.ArticleSerializer
 
@@ -30,7 +30,7 @@ class PublishedArticles(viewsets.ViewSet):
 
     def list(self, request):
         queryset = models.Article.objects.filter(
-            published__lte = timezone.now().date(),
+            published__lte = timezone.localtime().date(),
         ).order_by('-published', '-id')
         serializer = serializers.PublishedSerializer(
             queryset,
