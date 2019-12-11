@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Lead(models.Model):
     name = models.CharField(max_length=31)
     email = models.EmailField()

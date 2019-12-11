@@ -3,12 +3,14 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 
+
 class Author(models.Model):
     name_first = models.CharField(max_length=31)
     name_last = models.CharField(max_length=31)
 
     def __str__(self):
-        return f'{self.name_first} {self.name_last}'
+        return f"{self.name_first} {self.name_last}"
+
 
 class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -21,9 +23,12 @@ class Article(models.Model):
     hits = models.IntegerField(default=0)
 
     def __str__(self):
-        return f'{self.published} | {self.title}'
+        return f"{self.published} | {self.title}"
+
 
 @receiver(post_save, sender=Article)
 def create_slug(sender, instance, created, **kwargs):
     if created:
-        instance.slug = f'{instance.published.year}-{instance.published.month}-{instance.slug}'
+        instance.slug = (
+            f"{instance.published.year}-{instance.published.month}-{instance.slug}"
+        )
