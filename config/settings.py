@@ -17,10 +17,10 @@ DJANGO_APPS = (
     "django.contrib.staticfiles",
 )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = ("sass_processor",)
 
 LOCAL_APPS = (
-    "leads",
+    "main",
     "blog",
 )
 
@@ -96,6 +96,7 @@ STATIC_ROOT = os.path.join(ROOT_DIR, "static")
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "sass_processor.finders.CssFinder",
 )
 
 MEDIA_URL = "/media/"
