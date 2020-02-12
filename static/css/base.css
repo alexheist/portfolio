@@ -25,14 +25,15 @@
 
 body {
   background-color: #282828;
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  overflow-x: hidden;
   display: grid;
+  font-family: "Montserrat", sans-serif;
   grid-template-columns: 100%;
-  grid-template-rows: 80vh 1fr 0.8fr 1.25fr; }
+  grid-template-rows: 80vh 1fr 0.8fr 1.25fr;
+  margin: 0;
+  overflow-x: hidden; }
 
 .nav {
+  background-color: transparent;
   display: flex;
   font-family: "Cousine", monospace;
   font-size: 0.9em;
@@ -51,27 +52,5 @@ body {
     text-decoration: none; }
     .nav__link:hover {
       border-right: 5px solid #fe8b8b; }
-
-.heading {
-  display: flex;
-  flex-direction: column;
-  height: 80vh;
-  justify-content: center;
-  text-align: center;
-  grid-row: 1 / 2; }
-  .heading__title {
-    color: #eee;
-    font-size: 10em;
-    font-weight: 700;
-    margin: 20px;
-    text-shadow: -4px -4px 10px #ffffff, 4px 4px 4px rgba(0, 0, 0, 0.2); }
-  .heading__subtitle {
-    color: rgba(219, 219, 219, 0.6);
-    font-size: 3.5em;
-    font-weight: 700;
-    margin: 0;
-    text-shadow: 2px 2px 2px #fff, -1px -1px 0 rgba(0, 0, 0, 0.2), 2px 2px 2px #fff; }
-  .heading--light {
-    background-color: #eee; }
 
 /*# sourceMappingURL=base.css.map */

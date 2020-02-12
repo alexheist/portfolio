@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from django.utils import timezone
 
 from . import models
 
 
 def index(request):
-    articles = models.Article.objects.all().order_by("-published")[:6]
+    articles = models.Article.objects.filter(published__lte=timezone.now()).order_by(
+        "-published"
+    )
     return render(request, "blog/index.html", {"articles": articles})
