@@ -6,7 +6,7 @@ Alex Heist
 {% endblock page-title %}
 
 {% block page-description %}
-Alex Heist is a full-stack software developer with experience in many technologies and roles
+Alex Heist is a full-stack software developer with experience designing and developing k
 {% endblock page-description %}
 
 {% block page-styles %}
@@ -23,17 +23,17 @@ Alex Heist is a full-stack software developer with experience in many technologi
 
 <section class="blog-preview">
     <h3 class="blog-preview__header">Blog</h3>
-    <a href="#" class="blog-preview__card blog-preview__card--popular">
+    <a href="blog/{{ popular.slug }}" class="blog-preview__card blog-preview__card--popular">
         <div class="blog-preview__wrapper">
-            <h4 class="blog-preview__title">Sample Title</h4>
-            <p class="blog-preview__date">01.01.20</p>
+            <h4 class="blog-preview__title">{{ popular.title }}</h4>
+            <p class="blog-preview__date">{{ popular.published }}</p>
         </div>
     </a>
     <p class="blog-preview__tag blog-preview__tag--popular">Most Popular</p>
-    <a href="#" class="blog-preview__card blog-preview__card--recent">
+    <a href="blog/{{ recent.slug }}" class="blog-preview__card blog-preview__card--recent">
         <div class="blog-preview__wrapper">
-            <h4 class="blog-preview__title">Sample Second Article Title</h4>
-            <p class="blog-preview__date">01.01.20</p>
+            <h4 class="blog-preview__title">{{ recent.title }}</h4>
+            <p class="blog-preview__date">{{ recent.published }}</p>
         </div>
     </a>
     <p class="blog-preview__tag blog-preview__tag--recent">Most Recent</p>

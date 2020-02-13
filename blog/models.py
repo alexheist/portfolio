@@ -16,8 +16,19 @@ class Article(models.Model):
     hits = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.published} | {self.title}"
+        return f"{self.published} | {self.hits} | {self.title}"
 
     @property
     def formatted_markdown(self):
         return markdownify(self.markdown)
+
+    def get_preview_articles():
+        current_date = timezone.now().date()
+        articles = __class__.objects.order_by("hits")
+        popular = list(articles.order_by("hits")).pop(0)
+        recent = (
+            articles.filter(published__lt=current_date)
+            .order_by("-published")
+            .exclude(id=popular.id)[0]
+        )
+        return popular, recent
