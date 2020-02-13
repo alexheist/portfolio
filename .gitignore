@@ -25,3 +25,4 @@ localhost.crt
 localhost.key
 
 .vscode
+.DS_Store

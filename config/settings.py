@@ -17,7 +17,7 @@ DJANGO_APPS = (
     "django.contrib.staticfiles",
 )
 
-THIRD_PARTY_APPS = ("sass_processor",)
+THIRD_PARTY_APPS = ("sass_processor", "markdownx")
 
 LOCAL_APPS = (
     "main",
@@ -110,3 +110,11 @@ RECAPTCHA_SECRET = os.environ.get("RECAPTCHA_SECRET")
 # ===============================
 LOGIN_REDIRECT_URL = "/api"
 SESSION_COOKIE_AGE = 3600
+
+# Markdown
+# ===============================
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    "markdown.extensions.extra",
+    "markdown.extensions.fenced_code",
+]
+

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from . import models
@@ -9,3 +9,8 @@ def index(request):
         "-published"
     )
     return render(request, "blog/index.html", {"articles": articles})
+
+
+def article(request, slug):
+    article = get_object_or_404(models.Article, slug=slug)
+    return render(request, "blog/article.html", {"article": article})
