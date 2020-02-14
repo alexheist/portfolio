@@ -95,5 +95,41 @@ body {
 .article {
   width: 60%;
   font-size: 20px;
+  color: #555;
+  margin: 0 auto 100px;
+  line-height: 1.5em;
+}
+
+code {
+  font-family: "Cousine", monospace;
+  border-radius: 10px;
+  line-height: 1.2em;
+}
+
+pre code {
+  font-size: 16px;
+  padding: 20px !important;
+}
+
+p code {
+  display: inline !important;
+  font-size: 20px;
+  padding: 2px;
+  color: #569cd6;
+}
+
+blockquote {
+  font-size: 16px;
+  border-left: 5px solid #fe8b8b;
+  margin: 0;
+  padding: 10px 20px;
+  line-height: 1.3em;
+}
+
+blockquote code {
+  font-size: 16px;
+}
+
+a {
   color: #444;
 }

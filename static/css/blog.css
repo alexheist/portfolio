@@ -56,7 +56,7 @@ body {
       position: relative;
       width: 98%; }
       .articles__card .blog-preview__wrapper:hover {
-        border: 2px solid #edd247; }
+        border: 2px solid #f5db56; }
     .articles__card .blog-preview__title {
       font-size: 2em;
       font-weight: normal;

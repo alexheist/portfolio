@@ -37,7 +37,17 @@ body {
 {% block page-scripts %}
 <script src="{% static 'js/highlight.pack.js' %}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-<script src="{% static 'js/hitcounter.js' %}"></script>
-<script src="{% static 'js/formfields.js' %}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+hljs.initHighlightingOnLoad();
+
+window.onload = () => {
+  setTimeout(function() {
+    console.log("seen");
+    $.ajax({
+      type: "GET",
+      url: "{{ request.path }}"
+    });
+  }, 5000);
+};
+</script>
 {% endblock page-scripts %}

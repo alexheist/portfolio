@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load sass_tags %}
 
 {% block page-title %}
@@ -68,17 +69,62 @@ Alex Heist is a full-stack software developer with experience designing and deve
     <form class="contact__form" method="post">
         <div id="name" class="form__field">
             <label id="name-label" for="name">Name</label>
-            <input type="text" name="name" value="" />
+            <input type="text" name="name" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);" />
         </div>
         <div id="email" class="form__field">
             <label id="email-label" for="email">Email</label>
-            <input type="email" name="email" value="" />
+            <input type="email" name="email" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);" />
         </div>
         <div id="message" class="form__field form__field--textarea">
             <label id="message-label" for="message">Message</label>
-            <textarea name="message" value="" ></textarea>
+            <textarea name="message" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);"></textarea>
         </div>
+        {% csrf_token %}
+        <span class="response"></span>
         <input class="btn" type="submit" value="Submit" />
     </form>
 </section>
 {% endblock content %}
+
+{% block page-scripts %}
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/formfields.js' %}"></script>
+<script>
+if (window.location.hash == "#contact") {
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+function populateResponse(success, message) {
+    textWrapper = $('.response')[0]
+    textWrapper.setAttribute("class", "response");
+    textWrapper.innerText = message;
+    if (!success) {
+        textWrapper.classList.add("response--error");
+    }
+}
+
+function clearForm() {
+    $(".contact__form")[0].reset()
+    $("#name")[0].classList.remove("form__field--active");
+    $("#email")[0].classList.remove("form__field--active");
+    $("#message")[0].classList.remove("form__field--active");
+}
+
+$(".contact__form").on("submit", function(event) {
+  event.preventDefault();
+  console.log("form submitted!"); // sanity check
+  $.ajax({
+    type: "POST",
+    url: "{{ request.path }}",
+    data: values,
+    success: function(response) {
+        populateResponse(true, "Thank you, I'll be in touch");
+        clearForm();
+    },
+    error: function(response) {
+        populateResponse(false, "An error occurred");
+    }
+  });
+});
+</script>
+{% endblock page-scripts %}
