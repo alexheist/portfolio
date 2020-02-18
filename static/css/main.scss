@@ -55,12 +55,11 @@
 
   &__header {
     color: #fff;
-    font-size: 600px;
-    left: 0;
+    font-size: 4em;
+    left: 10%;
     margin: 0;
-    opacity: 0.01;
     position: absolute;
-    top: 20%;
+    top: 30%;
     z-index: -1;
   }
 
@@ -317,6 +316,19 @@
       justify-self: end;
       padding: 5px 10px;
       width: 100px;
+    }
+
+    .response {
+      color: #656565;
+      grid-column: 1 / 2;
+      grid-row: 4 / 5;
+      justify-self: start;
+      padding-left: 10px;
+      align-self: center;
+
+      &--error {
+        color: #fe8b8b;
+      }
     }
   }
 }

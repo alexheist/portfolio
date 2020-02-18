@@ -44,12 +44,11 @@
   position: relative; }
   .blog-preview__header {
     color: #fff;
-    font-size: 600px;
-    left: 0;
+    font-size: 4em;
+    left: 10%;
     margin: 0;
-    opacity: 0.01;
     position: absolute;
-    top: 20%;
+    top: 30%;
     z-index: -1; }
   .blog-preview__card {
     align-items: center;
