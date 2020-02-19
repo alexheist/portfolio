@@ -39,7 +39,7 @@ body {
   display: grid;
   font-family: "Montserrat", sans-serif;
   grid-template-columns: 100%;
-  grid-template-rows: 80vh 1fr 0.8fr 1.25fr;
+  grid-template-rows: 80vh 1fr 0.8fr 1.1fr;
   margin: 0;
   overflow-x: hidden;
 }
@@ -68,42 +68,8 @@ body {
       border-right: 5px solid #fe8b8b;
     }
 
-    &--mobile {
-      text-decoration: none;
-
-      &:visited {
-        color: #282828;
-      }
+    &:visited {
+      color: #999;
     }
-  }
-
-  &--mobile {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    background-color: #eee;
-    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.2);
-    height: 50px;
-    justify-content: space-evenly;
-    align-items: center;
-    z-index: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
-
-  body {
-    padding-top: 50px;
-  }
-}
-
-@media (min-width: 768px) {
-  .nav--mobile {
-    display: none;
   }
 }
