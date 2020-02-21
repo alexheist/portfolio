@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block page-title %}
+{{ article.title }} | Alex Heist
+{% endblock page-title %}
+
+{% block page-description %}
+{{ article.description }}
+{% endblock page-description %}
+
+{% block page-styles %}
+<link rel="stylesheet" href="{% sass_src 'css/blog.scss' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/vs2015.css' %}">
+<style>
+body {
+  grid-template-rows: 40vh 1fr;
+}
+
+.heading__subtitle {
+    text-align: left;
+}
+
+@media (max-width: 992px) {
+  .heading__subtitle {
+    padding: 20px 0 20px 15%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading__subtitle {
+    padding: 20px 10%;
+    width: calc(100% - 20%)
+  }
+}
+
+@media (max-width: 576px) {
+  .heading__subtitle {
+    padding: 20px 0 20px 2%;
+    width: calc(100% - 2% - 5px);
+  }
+}
+</style>
+{% endblock page-styles %}
+
+{% block content %}
+<section class="heading heading--light">
+    <h2 class="heading__subtitle">{{ article.title }}</h2>
+</section>
+
+<section class="article">
+    {{ article.formatted_markdown|safe }}
+</section>
+{% endblock content %}
+
+{% block page-scripts %}
+<script src="{% static 'js/highlight.pack.js' %}"></script>
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script>
+hljs.initHighlightingOnLoad();
+
+window.onload = () => {
+  setTimeout(function() {
+    console.log("seen");
+    $.ajax({
+      type: "GET",
+      url: "{{ request.path }}"
+    });
+  }, 5000);
+};
+</script>
+{% endblock page-scripts %}

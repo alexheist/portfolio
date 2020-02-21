@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block page-title %}
+Blog | Alex Heist
+{% endblock page-title %}
+
+{% block page-description %}
+Tutorials. Tips & Tricks. Etc.
+{% endblock page-description %}
+
+{% block page-styles %}
+<link rel="stylesheet" href="{% sass_src 'css/blog.scss' %}" type="text/css">
+{% endblock page-styles %}
+
+{% block content %}
+<section class="heading heading--light">
+    <h1 class="heading__title">Blog</h1>
+    <h2 class="heading__subtitle">Tutorials. Tips & Tricks. Etc.</h2>
+</section>
+
+<section class="articles">
+    {% for article in articles %}
+        <a href="{{ article.slug }}" class="articles__card">
+            <div class="blog-preview__wrapper">
+                <h4 class="blog-preview__title">{{ article.title }}</h4>
+                <p class="blog-preview__date">{{ article.published }}</p>
+            </div>
+        </a>
+    {% endfor %}
+</section>
+{% endblock content %}

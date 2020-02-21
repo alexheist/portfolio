@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block page-title %}
+Alex Heist | Software Developer
+{% endblock page-title %}
+
+{% block page-description %}
+Alex Heist is a full-stack software developer with experience designing and developing k
+{% endblock page-description %}
+
+{% block page-styles %}
+<link rel="stylesheet" href="{% sass_src 'css/main.scss' %}" type="text/css">
+{% endblock page-styles %}
+
+{% block content %}
+<section class="heading heading--light">
+    <h1 class="heading__title">Alex Heist</h1>
+    <h2 class="heading__subtitle">Software Developer</h2>
+</section>
+
+<svg class="bezier-border--top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#eee" fill-opacity="1" d="M0,96L34.3,80C68.6,64,137,32,206,42.7C274.3,53,343,107,411,117.3C480,128,549,96,617,106.7C685.7,117,754,171,823,192C891.4,213,960,203,1029,170.7C1097.1,139,1166,85,1234,58.7C1302.9,32,1371,32,1406,32L1440,32L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+
+<section class="blog-preview">
+    <h3 class="blog-preview__header">Blog</h3>
+    <a href="blog/{{ popular.slug }}" class="blog-preview__card blog-preview__card--popular">
+        <div class="blog-preview__wrapper">
+            <h4 class="blog-preview__title">{{ popular.title }}</h4>
+            <p class="blog-preview__date">{{ popular.published }}</p>
+        </div>
+    </a>
+    <p class="blog-preview__tag blog-preview__tag--popular">Most Popular</p>
+    <a href="blog/{{ recent.slug }}" class="blog-preview__card blog-preview__card--recent">
+        <div class="blog-preview__wrapper">
+            <h4 class="blog-preview__title">{{ recent.title }}</h4>
+            <p class="blog-preview__date">{{ recent.published }}</p>
+        </div>
+    </a>
+    <p class="blog-preview__tag blog-preview__tag--recent">Most Recent</p>
+    <a href="/blog" class="blog-preview__cta btn--dark">
+        Read More
+        <svg class="chevron chevron--right" viewBox="0 0 4 4" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,0 L 4,0 L 4,4" fill="none" stroke="#fe8b8b" strokeWidth="10" />
+        </svg>
+    </a>
+</section>
+
+<section class="about">
+    <div class="about__content">
+        <h3 class="about__title">About Me</h3>
+        <ul class="about__links">
+            <li><a href="https://linkedin.com/alexander-heist">LinkedIn</a></li>
+            <li><a href="https://github.com/alexheist">GitHub</a></li>
+        </ul>
+        <p class="about__text">
+        I am a full-stack software developer with experience in a multitude of
+        technologies and roles, from wireframing and design to production
+        configuration and deployment. I am quick to learn new skills, which
+        has been crucial to my success in a small software company with
+        limited resources. 
+        </p>
+    </div>
+</section>
+
+<svg class="bezier-border--bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#282828" fill-opacity="1" d="M0,128L48,160C96,192,192,256,288,256C384,256,480,192,576,149.3C672,107,768,85,864,90.7C960,96,1056,128,1152,122.7C1248,117,1344,75,1392,53.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+<section id="contact" class="contact">
+    <h3 class="contact__title">Contact</h3>
+    <form class="contact__form" method="post">
+        <div id="name" class="form__field">
+            <label id="name-label" for="name">Name</label>
+            <input type="text" name="name" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);" />
+        </div>
+        <div id="email" class="form__field">
+            <label id="email-label" for="email">Email</label>
+            <input type="email" name="email" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);" />
+        </div>
+        <div id="message" class="form__field form__field--textarea">
+            <label id="message-label" for="message">Message</label>
+            <textarea name="message" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);"></textarea>
+        </div>
+        {% csrf_token %}
+        <span class="response"></span>
+        <input class="btn" type="submit" value="Submit" />
+    </form>
+</section>
+{% endblock content %}
+
+{% block page-scripts %}
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/formfields.js' %}"></script>
+<script>
+function populateResponse(success, message) {
+    textWrapper = $('.response')[0]
+    textWrapper.setAttribute("class", "response");
+    textWrapper.innerText = message;
+    if (!success) {
+        textWrapper.classList.add("response--error");
+    }
+}
+
+function clearForm() {
+    $(".contact__form")[0].reset()
+    $("#name")[0].classList.remove("form__field--active");
+    $("#email")[0].classList.remove("form__field--active");
+    $("#message")[0].classList.remove("form__field--active");
+}
+
+$(".contact__form").on("submit", function(event) {
+  event.preventDefault();
+  console.log("form submitted!"); // sanity check
+  $.ajax({
+    type: "POST",
+    url: "{{ request.path }}",
+    data: values,
+    success: function(response) {
+        populateResponse(true, "Thank you");
+        clearForm();
+    },
+    error: function(response) {
+        populateResponse(false, "An error occurred");
+    }
+  });
+});
+</script>
+{% endblock page-scripts %}

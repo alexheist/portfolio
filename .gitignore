@@ -23,3 +23,6 @@ migrations/
 # Local-Specific
 localhost.crt
 localhost.key
+
+.vscode
+.DS_Store
