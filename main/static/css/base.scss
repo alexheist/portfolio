@@ -29,9 +29,9 @@
 }
 
 html {
+  margin: 0;
   min-width: 100vw;
   padding: 0;
-  margin: 0;
 }
 
 body {
@@ -46,13 +46,17 @@ body {
 
 .nav {
   background-color: transparent;
+  display: -webkit-box;
   display: flex;
   font-family: "Cousine", monospace;
   font-size: 0.9em;
   position: fixed;
   right: 0;
+  -webkit-text-orientation: upright;
   text-orientation: upright;
   top: 20px;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
   writing-mode: vertical-lr;
   z-index: 2;
 

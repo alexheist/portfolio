@@ -1,11 +1,15 @@
 body {
-  grid-template-rows: 60vh 1fr;
-  grid-template-columns: 100%;
   background-color: #eee;
+  grid-template-columns: 100%;
+  grid-template-rows: 60vh 1fr;
 }
 
 .heading {
   background-color: #eee;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  display: -webkit-box;
   display: flex;
   flex-direction: column;
   grid-row: 1 / 2;
@@ -13,52 +17,58 @@ body {
   text-align: left;
 
   &__title {
-    color: #eee;
     border-left: 5px solid #fe8b8b;
+    color: #eee;
     font-size: 10em;
     font-weight: 700;
     margin: 0;
-    width: calc(100% - 105px);
     padding: 0 0 0 100px;
     text-shadow: -4px -4px 10px #ffffff, 4px 4px 4px rgba(0, 0, 0, 0.2);
+    width: calc(100% - 105px);
   }
 
   &__subtitle {
-    color: rgba(219, 219, 219, 0.6);
     border-left: 5px solid #fe8b8b;
+    color: rgba(219, 219, 219, 0.6);
     font-size: 3.5em;
     font-weight: 700;
     margin: 0;
-    width: 60%;
     padding: 20px 0 20px 100px;
     text-shadow: 2px 2px 2px #fff, -1px -1px 0 rgba(0, 0, 0, 0.2),
       2px 2px 2px #fff;
+    width: 60%;
   }
 }
 
 .articles {
-  color: #282828;
+  align-items: flex-start;
   border-right: 5px solid transparent;
+  -webkit-box-align: flex-start;
+  -webkit-box-pack: center;
+  color: #282828;
+  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 0 0 100px 0;
   position: relative;
-  align-items: start;
-  justify-content: center;
 
   &__card {
     align-items: center;
     border-radius: 25px;
-    color: #282828;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
     box-shadow: -4px -4px 10px #ffffff, 4px 4px 4px rgba(0, 0, 0, 0.2);
+    color: #282828;
+    display: -webkit-box;
     display: flex;
     height: 200px;
     justify-content: center;
     margin: 20px;
+    min-width: 400px;
     padding: 10px;
     text-decoration: none;
     width: 40%;
-    min-width: 400px;
 
     .blog-preview__wrapper {
       border: 2px solid #d4d3ff;
@@ -95,11 +105,11 @@ body {
 }
 
 .article {
-  width: 60%;
-  font-size: 20px;
   color: #555;
-  margin: 0 auto 50px;
+  font-size: 20px;
   line-height: 1.5em;
+  margin: 0 auto 50px;
+  width: 60%;
 }
 
 pre {
@@ -108,31 +118,31 @@ pre {
 }
 
 code {
-  font-family: "Cousine", monospace;
   border-radius: 10px;
+  font-family: "Cousine", monospace;
   line-height: 1.2em;
 }
 
 pre code {
   font-size: 16px;
-  padding: 20px !important;
   overflow-x: scroll !important;
+  padding: 20px !important;
 }
 
 p code {
+  color: #569cd6;
   display: inline !important;
   font-size: 20px;
   padding: 2px;
-  color: #569cd6;
   word-break: break-all;
 }
 
 blockquote {
-  font-size: 16px;
   border-left: 5px solid #fe8b8b;
+  font-size: 16px;
+  line-height: 1.3em;
   margin: 0;
   padding: 10px 20px;
-  line-height: 1.3em;
 }
 
 blockquote code {
@@ -146,6 +156,12 @@ a {
 @media (max-width: 992px) {
   .heading__subtitle {
     width: 70%;
+  }
+
+  .nav {
+    bottom: 0;
+    font-size: 0.8em;
+    top: unset;
   }
 
   .article {
@@ -179,13 +195,37 @@ a {
 
 @media (max-width: 576px) {
   .heading__subtitle {
-    width: 98%;
     font-size: 2.8em;
+    width: 98%;
+  }
+
+  .nav {
+    background-color: #282828;
+    -webkit-box-pack: space-evenly;
+    height: 50px;
+    justify-content: space-evenly;
+    right: 0;
+    -webkit-text-orientation: unset;
+    text-orientation: unset;
+    width: 100%;
+    -webkit-writing-mode: unset;
+    -ms-writing-mode: unset;
+    writing-mode: unset;
+
+    &__link {
+      border-bottom: 5px solid transparent;
+      border-right: none;
+
+      &:hover {
+        border-bottom: 5px solid #fe8b8b;
+        border-right: none;
+      }
+    }
   }
 
   .article {
-    width: 98%;
     font-size: 18px;
+    width: 98%;
   }
 
   pre code {
@@ -199,9 +239,9 @@ a {
   .articles {
     &__card {
       height: 150px;
-      width: 80%;
       margin: 20px 10px;
       min-width: 300px;
+      width: 80%;
 
       .blog-preview__title {
         font-size: 1.4em;
@@ -230,7 +270,7 @@ a {
   }
 
   .article {
-    width: 98%;
     font-size: 18px;
+    width: 98%;
   }
 }

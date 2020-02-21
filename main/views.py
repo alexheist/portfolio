@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from django import http
 from blog import models as blog_models
-from . import models
-from . import forms
+from django import http
+from django.shortcuts import render
+
+from . import forms, models
 
 
 def index(request):

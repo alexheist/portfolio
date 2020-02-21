@@ -3,7 +3,7 @@
 {% load sass_tags %}
 
 {% block page-title %}
-Alex Heist
+Alex Heist | Software Developer
 {% endblock page-title %}
 
 {% block page-description %}
@@ -52,7 +52,6 @@ Alex Heist is a full-stack software developer with experience designing and deve
         <ul class="about__links">
             <li><a href="https://linkedin.com/alexander-heist">LinkedIn</a></li>
             <li><a href="https://github.com/alexheist">GitHub</a></li>
-            <li><a href="#">CV</a></li>
         </ul>
         <p class="about__text">
         I am a full-stack software developer with experience in a multitude of
@@ -66,7 +65,7 @@ Alex Heist is a full-stack software developer with experience designing and deve
 
 <svg class="bezier-border--bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#282828" fill-opacity="1" d="M0,128L48,160C96,192,192,256,288,256C384,256,480,192,576,149.3C672,107,768,85,864,90.7C960,96,1056,128,1152,122.7C1248,117,1344,75,1392,53.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
 
-<section class="contact">
+<section id="contact" class="contact">
     <h3 class="contact__title">Contact</h3>
     <form class="contact__form" method="post">
         <div id="name" class="form__field">
@@ -92,10 +91,6 @@ Alex Heist is a full-stack software developer with experience designing and deve
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'js/formfields.js' %}"></script>
 <script>
-if (window.location.hash == "#contact") {
-    window.scrollTo(0, document.body.scrollHeight);
-}
-
 function populateResponse(success, message) {
     textWrapper = $('.response')[0]
     textWrapper.setAttribute("class", "response");
@@ -120,7 +115,7 @@ $(".contact__form").on("submit", function(event) {
     url: "{{ request.path }}",
     data: values,
     success: function(response) {
-        populateResponse(true, "Thank you, I'll be in touch");
+        populateResponse(true, "Thank you");
         clearForm();
     },
     error: function(response) {

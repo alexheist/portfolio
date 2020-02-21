@@ -14,7 +14,7 @@ services:
       - "8000:8000"
     environment:
       - DJANGO_SECRET_KEY=foobar
-      - DJANGO_DEBUG=1
+      - DJANGO_DEBUG=0
       - DB_ENGINE=django.db.backends.postgresql
       - DB_NAME=portfolio_dev
       - DB_USER=dev_user
