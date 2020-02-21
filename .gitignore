@@ -13,16 +13,8 @@ pyvenv.cfg
 *.old
 .*.sw*
 
-# Collected Static & Media
-backend/static/*
-backend/media/*
-
 # Migrations
 migrations/
-
-# Local-Specific
-localhost.crt
-localhost.key
 
 .vscode
 .DS_Store
