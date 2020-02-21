@@ -13,6 +13,8 @@ pyvenv.cfg
 *.old
 .*.sw*
 
+static/
+
 # Migrations
 migrations/
 
