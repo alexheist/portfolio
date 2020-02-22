@@ -6,6 +6,10 @@ Alex Heist | Software Developer
 
 {% block page-styles %}
 <style>
+body {
+  background-color: #eee;
+}
+
 .heading {
   background-color: #eee;
   -webkit-box-direction: normal;
@@ -16,8 +20,9 @@ Alex Heist | Software Developer
   flex-direction: column;
   justify-content: center;
   text-align: left;
+}
 
-  &__title {
+.heading__title {
     border-left: 5px solid #fe8b8b;
     color: #eee;
     font-size: 10em;
@@ -28,7 +33,7 @@ Alex Heist | Software Developer
     width: calc(100% - 105px);
   }
 
-  &__subtitle {
+.heading__subtitle {
     border-left: 5px solid #fe8b8b;
     color: rgba(219, 219, 219, 0.6);
     font-size: 3.5em;
@@ -39,7 +44,6 @@ Alex Heist | Software Developer
       2px 2px 2px #fff;
     width: 60%;
   }
-}
 </style>
 {% endblock page-styles %}
 

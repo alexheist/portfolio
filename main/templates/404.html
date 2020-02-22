@@ -6,6 +6,10 @@ Alex Heist | Software Developer
 
 {% block page-styles %}
 <style>
+body {
+  background-color: #eee;
+}
+
 .heading {
   background-color: #eee;
   -webkit-box-direction: normal;
@@ -16,29 +20,29 @@ Alex Heist | Software Developer
   flex-direction: column;
   justify-content: center;
   text-align: left;
+}
 
-  &__title {
-    border-left: 5px solid #fe8b8b;
-    color: #eee;
-    font-size: 10em;
-    font-weight: 700;
-    margin: 0;
-    padding: 0 0 0 100px;
-    text-shadow: -4px -4px 10px #ffffff, 4px 4px 4px rgba(0, 0, 0, 0.2);
-    width: calc(100% - 105px);
-  }
+.heading__title {
+  border-left: 5px solid #fe8b8b;
+  color: #eee;
+  font-size: 10em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0 0 0 100px;
+  text-shadow: -4px -4px 10px #ffffff, 4px 4px 4px rgba(0, 0, 0, 0.2);
+  width: calc(100% - 105px);
+}
 
-  &__subtitle {
-    border-left: 5px solid #fe8b8b;
-    color: rgba(219, 219, 219, 0.6);
-    font-size: 3.5em;
-    font-weight: 700;
-    margin: 0;
-    padding: 20px 0 20px 100px;
-    text-shadow: 2px 2px 2px #fff, -1px -1px 0 rgba(0, 0, 0, 0.2),
-      2px 2px 2px #fff;
-    width: 60%;
-  }
+.heading__subtitle {
+  border-left: 5px solid #fe8b8b;
+  color: rgba(219, 219, 219, 0.6);
+  font-size: 3.5em;
+  font-weight: 700;
+  margin: 0;
+  padding: 20px 0 20px 100px;
+  text-shadow: 2px 2px 2px #fff, -1px -1px 0 rgba(0, 0, 0, 0.2),
+    2px 2px 2px #fff;
+  width: 60%;
 }
 </style>
 {% endblock page-styles %}
