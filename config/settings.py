@@ -15,6 +15,8 @@ DJANGO_APPS = (
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
 )
 
 THIRD_PARTY_APPS = ("sass_processor", "markdownx")
@@ -27,6 +29,8 @@ LOCAL_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 ALLOWED_HOSTS = ["*"]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
