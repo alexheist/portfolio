@@ -18,6 +18,7 @@ sitemaps = {
             "date_field": "updated",
         },
         priority=0.9,
+        protocol="https",
     ),
 }
 
