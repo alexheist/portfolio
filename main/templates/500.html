@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
+{% load sass_tags %}
 
 {% block page-title %}
 Alex Heist | Software Developer
 {% endblock page-title %}
+
+{% block page-styles %}
+<style>
+body {
+  background-color: #eee;
+}
+</style>
+<link rel="stylesheet" href="{% sass_src 'css/blog.scss' %}" type="text/css">
+{% endblock page-styles %}
 
 {% block content %}
 <section class="heading heading--light">

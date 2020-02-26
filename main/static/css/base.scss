@@ -1,32 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Cousine&display=swap");
-
-@font-face {
-  font-family: "Montserrat";
-  font-style: light;
-  font-weight: 300;
-  src: url("/static/fonts/Montserrat-Light.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/static/fonts/Montserrat-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Montserrat";
-  font-style: medium;
-  font-weight: 500;
-  src: url("/static/fonts/Montserrat-Medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Montserrat";
-  font-style: bold;
-  font-weight: 700;
-  src: url("/static/fonts/Montserrat-Bold.ttf") format("truetype");
-}
+@import url("https://fonts.googleapis.com/css?family=Cousine|Montserrat:300,400,700&display=swap");
 
 html {
   margin: 0;

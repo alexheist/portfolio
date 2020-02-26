@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.urls import reverse
 from django.utils import timezone
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
@@ -28,3 +29,6 @@ class Article(models.Model):
         popular = list(articles.order_by("-hits")).pop(0)
         recent = articles.order_by("-published").exclude(id=popular.id)[0]
         return popular, recent
+
+    def get_absolute_url(self):
+        return reverse("blog_detail", args=[str(self.slug)])
