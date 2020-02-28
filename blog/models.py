@@ -24,7 +24,7 @@ class Article(models.Model):
         return markdownify(self.markdown)
 
     def get_preview_articles():
-        current_date = timezone.now().date()
+        current_date = timezone.localtime().date()
         articles = __class__.objects.filter(published__lte=current_date)
         popular = list(articles.order_by("-hits")).pop(0)
         recent = articles.order_by("-published").exclude(id=popular.id)[0]
