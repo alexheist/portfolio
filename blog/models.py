@@ -16,9 +16,6 @@ class Article(models.Model):
     updated = models.DateField(blank=True, null=True)
     hits = models.IntegerField(default=0)
 
-    def __str__(self):
-        return f"{self.published} | {self.hits} | {self.title}"
-
     @property
     def formatted_markdown(self):
         return markdownify(self.markdown)
