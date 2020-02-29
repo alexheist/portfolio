@@ -52,11 +52,37 @@ body {
 <section class="article">
     {{ article.formatted_markdown|safe }}
 </section>
+
+
+<section class="comments">
+  <svg class="bezier-border--top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#eee" fill-opacity="1" d="M0,96L34.3,80C68.6,64,137,32,206,42.7C274.3,53,343,107,411,117.3C480,128,549,96,617,106.7C685.7,117,754,171,823,192C891.4,213,960,203,1029,170.7C1097.1,139,1166,85,1234,58.7C1302.9,32,1371,32,1406,32L1440,32L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+  <div class="comments__wrapper">
+    <h2 class="comments__title">Comments</h2>
+    <p class="comments__subtitle">If you found this article to be helpful or have any questions, please leave a comment below.</p>
+    <div class="comment-list">
+      {% include "partials/comment.html" %}
+    </div>
+    <form class="comments__form" method="post">
+        <div id="name" class="form__field">
+            <label id="name-label" for="name">Name</label>
+            <input type="text" name="name" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);" />
+        </div>
+        <div id="message" class="form__field form__field--textarea">
+            <label id="message-label" for="message">Message</label>
+            <textarea name="message" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);"></textarea>
+        </div>
+        {% csrf_token %}
+        <span class="response"></span>
+        <input class="btn" type="submit" value="Submit" />
+    </form>
+  </div>
+</section>
 {% endblock content %}
 
 {% block page-scripts %}
 <script src="{% static 'js/highlight.pack.js' %}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/formfields.js' %}"></script>
 <script>
 hljs.initHighlightingOnLoad();
 
@@ -69,5 +95,38 @@ window.onload = () => {
     });
   }, 5000);
 };
+
+function populateResponse(success, message) {
+    textWrapper = $('.response')[0]
+    textWrapper.setAttribute("class", "response");
+    textWrapper.innerText = message;
+    if (!success) {
+        textWrapper.classList.add("response--error");
+    }
+}
+
+function clearForm() {
+    $(".comments__form")[0].reset()
+    $("#name")[0].classList.remove("form__field--active");
+    $("#message")[0].classList.remove("form__field--active");
+}
+
+$(".comments__form").on("submit", function(event) {
+  event.preventDefault();
+  console.log("form submitted!"); // sanity check
+  $.ajax({
+    type: "POST",
+    url: "{{ request.path }}",
+    data: values,
+    success: function(response) {
+        populateResponse(true, "Thank you");
+        $('.comment-list').html('').load("{% url 'comment_partial' article.slug %}");
+        clearForm();
+    },
+    error: function(response) {
+        populateResponse(false, "An error occurred");
+    }
+  });
+});
 </script>
 {% endblock page-scripts %}

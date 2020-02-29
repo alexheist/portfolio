@@ -8,4 +8,3 @@ from . import models
 class ArticleAdmin(MarkdownxModelAdmin):
     list_display = ("title", "slug", "hits", "published", "updated")
     date_heirarchy = "published"
-
