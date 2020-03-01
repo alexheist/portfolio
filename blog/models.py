@@ -16,9 +16,16 @@ class Article(models.Model):
     updated = models.DateField(blank=True, null=True)
     hits = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
     @property
     def formatted_markdown(self):
         return markdownify(self.markdown)
+
+    @property
+    def comments(self):
+        return self.comment_set.filter(appropriate=True).order_by("-timestamp")
 
     def get_preview_articles():
         current_date = timezone.localtime().date()
@@ -29,3 +36,14 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("blog_detail", args=[str(self.slug)])
+
+
+class Comment(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    name = models.CharField(max_length=63)
+    message = models.TextField()
+    timestamp = models.DateTimeField(default=timezone.localtime)
+    seen = models.BooleanField(default=False)
+    response = models.TextField(blank=True, null=True)
+    appropriate = models.BooleanField(default=True)
+

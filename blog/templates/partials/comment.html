@@ -1,0 +1,13 @@
+{% for comment in article.comments %}
+    <div class="comment">
+        <h3 class="comment__name">{{ comment.name }}</h3>
+        <p class="comment__timestamp">{{ comment.timestamp }}</p>
+        <p class="comment__message">{{ comment.message }}</p>
+    </div>
+    {% if comment.response %}
+        <div class="comment comment--response">
+            <h3 class="comment__name">Alex Heist</h3>
+            <p class="comment__message">{{ comment.response }}</p>
+        </div>
+    {% endif %}
+{% endfor %}

@@ -1,8 +1,8 @@
 var csrfToken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
 var values = {
-  name: undefined,
-  email: undefined,
-  message: undefined,
+  name: "",
+  email: "",
+  message: "",
   csrfmiddlewaretoken: csrfToken
 };
 
@@ -13,7 +13,7 @@ function handleFocus(id) {
 
 function handleBlur(id) {
   var field = document.getElementById(id);
-  if (values[field.id] === undefined) {
+  if (values[field.id] === "") {
     field.classList.remove("form__field--active");
   }
 }
