@@ -72,9 +72,15 @@ body {
             <textarea name="message" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);"></textarea>
         </div>
         {% csrf_token %}
+        <input id="recaptcha" type="hidden" name="g-recaptcha-response" />
         <span class="response"></span>
         <input class="btn" type="submit" value="Submit" />
     </form>
+    <p class="recaptcha-text"><small>
+      This site is protected by reCAPTCHA and the Google
+      <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </small></p>
   </div>
 </section>
 {% endblock content %}
@@ -83,12 +89,12 @@ body {
 <script src="{% static 'js/highlight.pack.js' %}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'js/formfields.js' %}"></script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}"></script>
 <script>
 hljs.initHighlightingOnLoad();
 
 window.onload = () => {
   setTimeout(function() {
-    console.log("seen");
     $.ajax({
       type: "GET",
       url: "{{ request.path }}"
@@ -111,21 +117,25 @@ function clearForm() {
     $("#message")[0].classList.remove("form__field--active");
 }
 
-$(".comments__form").on("submit", function(event) {
-  event.preventDefault();
-  console.log("form submitted!"); // sanity check
-  $.ajax({
-    type: "POST",
-    url: "{{ request.path }}",
-    data: values,
-    success: function(response) {
-        populateResponse(true, "Thank you");
-        $('.comment-list').html('').load("{% url 'comment_partial' article.slug %}");
-        clearForm();
-    },
-    error: function(response) {
-        populateResponse(false, "An error occurred");
-    }
+grecaptcha.ready(function() {
+  $(".comments__form").on("submit", function(event) {
+    event.preventDefault();
+    grecaptcha.execute('{{ recaptcha_key }}', {action: 'contactForm'}).then(function(token) {
+      values.recaptcha = token
+      $.ajax({
+        type: "POST",
+        url: "{{ request.path }}",
+        data: values,
+        success: function(response) {
+            populateResponse(true, "Thank you");
+            $('.comment-list').html('').load("{% url 'comment_partial' article.slug %}");
+            clearForm();
+        },
+        error: function(response) {
+            populateResponse(false, "An error occurred");
+        }
+      });
+    });
   });
 });
 </script>

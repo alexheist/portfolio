@@ -108,7 +108,8 @@ MEDIA_ROOT = os.path.join(ROOT_DIR, "media")
 
 # Google ReCaptcha
 # ===============================
-RECAPTCHA_SECRET = os.environ.get("RECAPTCHA_SECRET")
+RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 
 # Authentication
 # ===============================

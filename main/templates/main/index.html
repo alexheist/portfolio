@@ -58,7 +58,7 @@ Alex Heist is a full-stack software developer with experience designing and deve
         technologies and roles, from wireframing and design to production
         configuration and deployment. I am quick to learn new skills, which
         has been crucial to my success in a small software company with
-        limited resources. 
+        limited resources.
         </p>
     </div>
 </section>
@@ -109,7 +109,6 @@ function clearForm() {
 
 $(".contact__form").on("submit", function(event) {
   event.preventDefault();
-  console.log("form submitted!"); // sanity check
   $.ajax({
     type: "POST",
     url: "{{ request.path }}",

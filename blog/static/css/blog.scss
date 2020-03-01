@@ -155,6 +155,10 @@ a {
   color: #444;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .comments {
   background-color: #282828;
 
@@ -197,12 +201,23 @@ a {
     flex-direction: column;
   }
 
+  .recaptcha-text {
+    color: #aaa;
+    text-align: center;
+    margin: 0 auto 70px;
+    width: 90%;
+
+    a {
+      color: #bbb;
+    }
+  }
+
   .comment {
     border-left: 5px solid #d4d3ff;
     border-radius: 15px;
     color: #eee;
     justify-self: center;
-    margin: 20px 0 50px 0;
+    margin: 20px 0 50px;
     padding: 15px;
     width: 60%;
 
@@ -248,7 +263,7 @@ a {
     grid-template-columns: 1fr;
     grid-template-rows: 0.75fr 1.25fr 0.5fr;
     height: 300px;
-    margin: 50px auto;
+    margin: 50px auto 20px;
     max-width: 720px;
     padding: 20px;
     width: 80%;
@@ -269,6 +284,7 @@ a {
       textarea {
         height: 100%;
         resize: none;
+        font-family: "Montserrat", sans-serif;
       }
     }
 
