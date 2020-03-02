@@ -1,7 +1,7 @@
 Personal Portfolio
 ==================
 
-Release: 3.0
+Release: 3.1
 
 #### What I've learned throughout this project
 
