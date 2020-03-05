@@ -1,7 +1,7 @@
 Personal Portfolio
 ==================
 
-Release: 3.0
+Release: 3.1
 
 #### What I've learned throughout this project
 
@@ -23,3 +23,4 @@ Release: 3.0
 - React.js is less than optimal for SEO, and was overkill for my purposes
 - Re-implemented simple Django website with Docker
 - Improved overall design, utilizing some neumorphic techniques
+- Comment system for Blog
