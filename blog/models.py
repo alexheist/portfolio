@@ -30,8 +30,14 @@ class Article(models.Model):
     def get_preview_articles():
         current_date = timezone.localtime().date()
         articles = __class__.objects.filter(published__lte=current_date)
-        popular = list(articles.order_by("-hits")).pop(0)
-        recent = articles.order_by("-published").exclude(id=popular.id)[0]
+        try:
+            popular = list(articles.order_by("-hits")).pop(0)
+        except:
+            popular = None
+        try:
+            recent = articles.order_by("-published").exclude(id=popular.id)[0]
+        except:
+            recent = None
         return popular, recent
 
     def get_absolute_url(self):
@@ -46,4 +52,3 @@ class Comment(models.Model):
     seen = models.BooleanField(default=False)
     response = models.TextField(blank=True, null=True)
     appropriate = models.BooleanField(default=True)
-
