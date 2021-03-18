@@ -2,8 +2,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 95vh;
     justify-content: center;
+    margin: 0 10px;
 
     &__brand {
         align-self: start;
@@ -73,4 +74,43 @@
 
 em {
     color: #181818 !important;
+}
+
+.about {
+    background-color: #333;
+    color: #fff;
+    font-family: 'EB Garamond', serif;
+    padding: 50px 0;
+    position: relative;
+
+    &__header {
+        bottom: 50px;
+        color: rgba(34, 34, 34, .5);
+        font-size: 250px;
+        font-weight: 600;
+        left: -50%;
+        line-height: 1;
+        margin: 0;
+        position: absolute;
+        text-align: center;
+        width: 200%;
+        z-index: 0;
+    }
+
+    &__image {
+        display: block;
+        filter: grayscale(100);
+        -webkit-filter: grayscale(100);
+        margin: 0 auto 50px;
+        max-width: calc(100vw - 100px);
+        position: relative;
+        z-index: 1;
+    }
+
+    &__text {
+        font-size: 18px;
+        padding: 0 50px;
+        position: relative;
+        z-index: 1;
+    }
 }
