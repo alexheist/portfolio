@@ -114,3 +114,89 @@ em {
         z-index: 1;
     }
 }
+
+.tap {
+    padding: 50px 0;
+
+    &__logo {
+        display: block;
+        margin: 0 auto 50px;
+        max-width: calc(100vw - 100px);
+    }
+
+    &__text {
+        font-size: 18px;
+        padding: 0 50px;
+    }
+
+    &__display {
+        display: none;
+    }
+}
+
+.testimonial {
+    background-color: #eee;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: #555;
+    display: block;
+    margin: 25px auto;
+    max-width: 450px;
+    padding: 10px;
+    position: relative;
+    width: 85%;
+
+    &__quote {
+        color: #ddd;
+        font-family: 'Passion One', 'cursive';
+        font-size: 75px;
+        position: absolute;
+        top: 0px;
+
+        &--left {
+            left: 10px;
+        }
+
+        &--right {
+            right: 10px;
+        }
+    }
+
+    &__text {
+        font-size: 14px;
+        margin: 35px 40px 0;
+    }
+
+    &__credit {
+        font-size: 14px;
+        margin-right: 10px;
+        text-align: right;
+    }
+}
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 50px;
+    padding: 0;
+    width: 150px;
+
+    &__item {
+        border: 1px solid #555;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        font-size: 12px;
+        list-style-type: none;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        padding: 5px 0;
+        text-align: center;
+        width: 60px;
+    }
+}
