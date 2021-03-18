@@ -1,0 +1,76 @@
+.heading {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+
+    &__brand {
+        align-self: start;
+        height: 60px;
+        left: 10px;
+        object-fit: contain;
+        position: absolute;
+        top: 10px;
+        width: 150px;
+    }
+
+    &__copy {
+        color: #666;
+        font-family: 'EB Garamond', serif;
+        font-size: 40px;
+        font-weight: 400;
+        margin: 50px 0;
+        width: 300px;
+    }
+
+    &__links {
+        align-self: start;
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    &__link {
+        color: #555;
+        font-size: 14px;
+        font-weight: 400;
+        margin-right: 20px;
+        text-decoration: none;
+        text-transform: capitalize;
+
+        &:hover {
+            text-decoration: line-through;
+        }
+    }
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    &__github {
+        text-decoration: none;
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    &__linkedin {
+        text-decoration: none;
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}
+
+em {
+    color: #181818 !important;
+}

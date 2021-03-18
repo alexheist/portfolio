@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Roboto:wght@300;400;500&display=swap');
 
 html {
-  // font-family: 'EB Garamond', serif;
   font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0 10px;
+    overflow-x: hidden;
+    padding: 0;
+    width: calc(100vw - (100vw - 100%));
 }

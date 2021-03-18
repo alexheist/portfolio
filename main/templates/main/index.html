@@ -1,46 +1,44 @@
 {% extends 'base.html' %}
+
 {% load static %}
 {% load sass_tags %}
 
-{% block page-title %}
-Alex Heist | Software Developer
-{% endblock page-title %}
+{% block page-title %} Alex Heist | Software Developer {% endblock page-title %}
 
 {% block page-description %}
 Alex Heist is a full-stack software developer with experience designing and developing engaging products for small businesses and startups.
 {% endblock page-description %}
 
 {% block page-styles %}
-<link rel="stylesheet" href="{% sass_src 'css/main.scss' %}" type="text/css">
+  <link rel="stylesheet" href="{% sass_src 'css/main.scss' %}" type="text/css" />
 {% endblock page-styles %}
 
 {% block content %}
 <section class="heading">
-  <div class="branding">
-    <h2 class="branding__arch">Software Developer</h2>
-    <h2 class="branding__base">Alex Heist</h2>
-  </div>
+  <img class="heading__brand" src="{% static 'img/brand.svg' %}" alt="Alex Heist - Software Developer" />
   <h1 class="heading__copy">Ensuring your project's success through smart <em>design</em> and <em>development</em></h1>
   <div class="heading__links">
-    <a class="heading__link" href="#projects">My Work</a>
-    <a class="heading__link" href="#contact">Contact</a>
+    <a class="heading__link" href="#projects">MY WORK</a>
+    <a class="heading__link" href="#contact">CONTACT</a>
   </div>
   <div class="social">
     <a class="social__github" href="https://github.com/alexheist" target="_blank" rel="nofollow noopener">
-      <img src="{% static 'img/github.png' %}" alt="GitHub Logo" />
+      <img src="{% static 'img/github.svg' %}" alt="GitHub Logo" />
     </a>
     <a class="social__linkedin" href="https://linkedin.com/in/alexander-heist" target="_blank" rel="nofollow noopener">
-      <img src="{% static 'img/linkedin.png' %}" alt="LinkedIn Logo" />
+      <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn Logo" />
     </a>
   </div>
 </section>
 <section class="about">
   <h3 class="about__header">About Me</h3>
   <p class="about__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </p>
   <img class="about__image" src="{% static 'img/headshot.jpg' %}" alt="Headshot" />
 </section>
@@ -48,9 +46,11 @@ Alex Heist is a full-stack software developer with experience designing and deve
   <img class="tap__logo" src="{% static 'img/tap.png' %}" alt="Total Asset Protection Logo" />
   <img class="tap__display" src="{% static 'img/tap-display.png' %}" alt="Total Asset Protection Phone Preview" />
   <p class="tap__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore
   </p>
   <ul class="tech tech--tap">
     <li class="tech__item">Flutter</li>
@@ -61,7 +61,8 @@ Alex Heist is a full-stack software developer with experience designing and deve
     <span class="testimonial__quote--left">&ldquo;</span>
     <span class="testimonial__quote--right">&rdquo;</span>
     <p class="testimonial__text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <p class="testimonial__credit">– Chad English, CTO</p>
   </div>
@@ -70,9 +71,11 @@ Alex Heist is a full-stack software developer with experience designing and deve
   <img class="ap__logo" src="{% static 'img/ap.png' %}" alt="Advisorpedia Logo" />
   <img class="ap__display" src="{% static 'img/ap-display.png' %}" alt="Advisorpedia Laptop Preview" />
   <p class="ap__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore
   </p>
   <ul class="tech tech--ap">
     <li class="tech__item">Django</li>
@@ -84,7 +87,8 @@ Alex Heist is a full-stack software developer with experience designing and deve
     <span class="testimonial__quote--left">&ldquo;</span>
     <span class="testimonial__quote--right">&rdquo;</span>
     <p class="testimonial__text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <p class="testimonial__credit">– Chad English, CTO</p>
   </div>
@@ -93,9 +97,11 @@ Alex Heist is a full-stack software developer with experience designing and deve
   <img class="sw__display" src="{% static 'img/sw-display.png' %}" alt="Sick Wish Band Photo" />
   <h3 class="sw__title">Sick Wish</h3>
   <p class="sw__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore
   </p>
   <ul class="tech tech--sw">
     <li class="tech__item">Django</li>
@@ -125,43 +131,42 @@ Alex Heist is a full-stack software developer with experience designing and deve
     <input class="btn" type="submit" value="Submit" />
   </form>
 </section>
-{% endblock content %}
-
-{% block page-scripts %}
+{% endblock content %} {% block page-scripts %}
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'js/formfields.js' %}"></script>
+
 <script>
-function populateResponse(success, message) {
-    textWrapper = $('.response')[0]
+  function populateResponse(success, message) {
+    textWrapper = $(".response")[0];
     textWrapper.setAttribute("class", "response");
     textWrapper.innerText = message;
     if (!success) {
-        textWrapper.classList.add("response--error");
+      textWrapper.classList.add("response--error");
     }
-}
+  }
 
-function clearForm() {
-    $(".contact__form")[0].reset()
+  function clearForm() {
+    $(".contact__form")[0].reset();
     $("#name")[0].classList.remove("form__field--active");
     $("#email")[0].classList.remove("form__field--active");
     $("#message")[0].classList.remove("form__field--active");
-}
+  }
 
-$(".contact__form").on("submit", function(event) {
-  event.preventDefault();
-  console.log("form submitted!"); // sanity check
-  $.ajax({
-    type: "POST",
-    url: "{{ request.path }}",
-    data: values,
-    success: function(response) {
+  $(".contact__form").on("submit", function (event) {
+    event.preventDefault();
+    console.log("form submitted!"); // sanity check
+    $.ajax({
+      type: "POST",
+      url: "{{ request.path }}",
+      data: values,
+      success: function (response) {
         populateResponse(true, "Thank you");
         clearForm();
-    },
-    error: function(response) {
+      },
+      error: function (response) {
         populateResponse(false, "An error occurred");
-    }
+      },
+    });
   });
-});
 </script>
 {% endblock page-scripts %}
