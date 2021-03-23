@@ -31,7 +31,7 @@ Alex Heist is a full-stack software developer with experience designing and deve
   </div>
 </section>
 <section class="about">
-  <h3 class="about__header">About Me</h3>
+  <h3 class="about__header">ABOUT ME</h3>
   <img class="about__image" src="{% static 'img/headshot.jpg' %}" alt="Headshot" />
   <p class="about__text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -44,19 +44,23 @@ Alex Heist is a full-stack software developer with experience designing and deve
 </section>
 <section class="tap">
   <img class="tap__logo" src="{% static 'img/tap.png' %}" alt="Total Asset Protection Logo" />
-  <p class="tap__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore
-  </p>
-  <ul class="tech tech--tap">
-    <li class="tech__item">Flutter</li>
-    <li class="tech__item">Django</li>
-    <li class="tech__item">Docker</li>
-  </ul>
-  <img class="tap__display" src="{% static 'img/tap-display.png' %}" alt="Total Asset Protection Phone Preview" />
+  <div class="tap__content">
+    <img class="tap__display" src="{% static 'img/tap-display.png' %}" alt="Total Asset Protection Phone Preview" />
+    <div>
+      <p class="tap__text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore
+      </p>
+      <ul class="tech tech--tap">
+        <li class="tech__item">Flutter</li>
+        <li class="tech__item">Django</li>
+        <li class="tech__item">Docker</li>
+      </ul>
+    </div>
+  </div>
   <div class="testimonial">
     <span class="testimonial__quote testimonial__quote--left">&ldquo;</span>
     <span class="testimonial__quote testimonial__quote--right">&rdquo;</span>
@@ -94,8 +98,8 @@ Alex Heist is a full-stack software developer with experience designing and deve
   </div>
 </section>
 <section class="sw">
-  <img class="sw__display" src="{% static 'img/sw-display.png' %}" alt="Sick Wish Band Photo" />
-  <h3 class="sw__title">Sick Wish</h3>
+  <img class="sw__display" src="{% static 'img/sw-display.jpg' %}" alt="Sick Wish Band Photo" />
+  <h3 class="sw__title">SICK WISH</h3>
   <p class="sw__text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -111,8 +115,9 @@ Alex Heist is a full-stack software developer with experience designing and deve
   </ul>
 </section>
 <section id="contact" class="contact">
-  <h3 class="contact__title">CONTACT ME</h3>
+  <img class="contact__image" src="{% static 'img/contact.jpg' %}" alt="Software Developer Desk" />
   <form class="contact__form" method="post">
+    <h3 class="contact__title">CONTACT ME</h3>
     <div id="name" class="form__field">
       <label id="name-label" for="name">Name</label>
       <input type="text" name="name" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);" />
@@ -129,7 +134,6 @@ Alex Heist is a full-stack software developer with experience designing and deve
     <span class="response"></span>
     <input class="btn" type="submit" value="Submit" />
   </form>
-  <img class="contact__image" src="{% static 'img/contact.jpg' %}" alt="Software Developer Desk" />
 </section>
 {% endblock content %} {% block page-scripts %}
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
