@@ -31,34 +31,51 @@ Alex Heist is a full-stack software developer with experience designing and deve
   </div>
 </section>
 <section class="about">
-  <h3 class="about__header">ABOUT ME</h3>
-  <img class="about__image" src="{% static 'img/headshot.jpg' %}" alt="Headshot" />
-  <p class="about__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </p>
+  <h3 class="about__header">ABOUT<br>ME</h3>
+  <div class="about__content">
+    <img class="about__image" src="{% static 'img/headshot.jpg' %}" alt="Headshot" />
+    <p class="about__text">
+    I’m a full-stack developer that has worked with a diverse range of clients to
+    bring their ideas to life. I specialize in building web applications with Django,
+    but have had extensive experience building mobile applications with Flutter as
+    well.
+    <br><br>
+    Having worked in a lean startup environment for the past few years, I have
+    experience with the entire development lifecycle: from wireframing and design to
+    development, testing, and server configuration. I’m eager to learn and challenge
+    myself to ensure that you get the product you deserve.
+    </p>
+  </div>
 </section>
-<section class="tap">
+<section class="tap" id="projects">
   <img class="tap__logo" src="{% static 'img/tap.png' %}" alt="Total Asset Protection Logo" />
   <div class="tap__content">
-    <img class="tap__display" src="{% static 'img/tap-display.png' %}" alt="Total Asset Protection Phone Preview" />
+    <picture>
+      <img class="tap__display" src="{% static 'img/tap-display.png' %}" alt="Total Asset Protection Phone Preview" />
+    </picture>
     <div>
       <p class="tap__text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore
+        Total Asset Protection is a mobile application that can help you document and
+        catalog the items in your home. TAP's main goal is to provide homeowners with
+        a simple means of ethically maximizing their next insurance claim
+        <br><br>
+        Having never worked on a mobile application, I've learned a lot from this
+        project. Built with Flutter on the frontend with a Djanog REST API on the
+        backend, this project has been load tested to handle nearly 100,000 concurrent
+        users.
       </p>
-      <ul class="tech tech--tap">
-        <li class="tech__item">Flutter</li>
-        <li class="tech__item">Django</li>
-        <li class="tech__item">Docker</li>
-      </ul>
+      <div class="supplemental tap__supp">
+        <ul class="tech tech--tap">
+          <li class="tech__item">Flutter</li>
+          <li class="tech__item">Django</li>
+          <li class="tech__item">Docker</li>
+        </ul>
+        <div class="supplemental__links">
+          <a href="https://totalassetprotection.net/" target="_blank">VISIT SITE</a>
+          <a href="https://apps.apple.com/us/app/total-asset-protection/id1497338936#?platform=iphone" target="_blank" rel="nofollow noopener">APP STORE</a>
+          <a href="https://play.google.com/store/apps/details?id=net.totalassetprotection.app&hl=en_US&fbclid=IwAR2fR3HNC0ky8fzYyMmX8sU6gs-scmkxAGzCrjOgkZkSqqxc-6mYpSnBZ1M" target="_blank" rel="nofollow noopener">GOOGLE PLAY</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="testimonial">
@@ -72,21 +89,31 @@ Alex Heist is a full-stack software developer with experience designing and deve
   </div>
 </section>
 <section class="ap">
-  <img class="ap__logo" src="{% static 'img/ap.png' %}" alt="Advisorpedia Logo" />
+  <picture>
+    <img class="ap__logo" src="{% static 'img/ap.png' %}" alt="Advisorpedia Logo" />
+  </picture>
   <img class="ap__display" src="{% static 'img/ap-display.png' %}" alt="Advisorpedia Laptop Preview" />
   <p class="ap__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore
+    With over 24,000 published articles, Advisorpedia is a leading force in providing
+    financial advisors with valuable content.
+    <br><br>
+    In my time working with Advisorpedia, I've grown traffic by 46.5% over a three
+    month period with improvements to the site's SEO. I've also implemented a site
+    redesign, rebranding, and move to a new domain that successfully maintained
+    search rankings and better positioned the company to engage in valuable
+    partnerships.
   </p>
-  <ul class="tech tech--ap">
-    <li class="tech__item">Django</li>
-    <li class="tech__item">Javascript</li>
-    <li class="tech__item">HTML</li>
-    <li class="tech__item">CSS</li>
-  </ul>
+  <div class="supplemental ap__supp">
+    <ul class="tech tech--ap">
+      <li class="tech__item">Django</li>
+      <li class="tech__item">Javascript</li>
+      <li class="tech__item">HTML</li>
+      <li class="tech__item">CSS</li>
+    </ul>
+    <div class="supplemental__links">
+      <a href="https://www.advisorpedia.com/" target="_blank">VISIT SITE</a>
+    </div>
+  </div>
   <div class="testimonial">
     <span class="testimonial__quote testimonial__quote--left">&ldquo;</span>
     <span class="testimonial__quote testimonial__quote--right">&rdquo;</span>
@@ -101,22 +128,30 @@ Alex Heist is a full-stack software developer with experience designing and deve
   <img class="sw__display" src="{% static 'img/sw-display.jpg' %}" alt="Sick Wish Band Photo" />
   <h3 class="sw__title">SICK WISH</h3>
   <p class="sw__text">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore
+    A passion project of mine, I worked with my friends and local band Sick Wish to
+    create a website that matched their needs and brand aesthetic.
+    <br><br>
+    Built with Django, the site takes advantage of the simple admin interface to
+    allow Sick Wish to post updates and information about their current projects,
+    tour dates, and artistic musings.
   </p>
-  <ul class="tech tech--sw">
-    <li class="tech__item">Django</li>
-    <li class="tech__item">HTML</li>
-    <li class="tech__item">CSS</li>
-    <li class="tech__item">Docker</li>
-  </ul>
+  <div class="supplemental sw__supp">
+    <ul class="tech tech--sw">
+      <li class="tech__item">Django</li>
+      <li class="tech__item">HTML</li>
+      <li class="tech__item">CSS</li>
+      <li class="tech__item">Docker</li>
+    </ul>
+    <div class="supplemental__links">
+      <a href="https://sickwish.com/" target="_blank">VISIT SITE</a>
+      <a href="https://github.com/alexheist/sickwish" target="_blank" rel="nofollow noopener">VIEW CODE</a>
+    </div>
+  </div>
 </section>
 <section id="contact" class="contact">
   <img class="contact__image" src="{% static 'img/contact.jpg' %}" alt="Software Developer Desk" />
   <form class="contact__form" method="post">
+    {% csrf_token %}
     <h3 class="contact__title">CONTACT ME</h3>
     <div id="name" class="form__field">
       <label id="name-label" for="name">Name</label>
@@ -130,12 +165,13 @@ Alex Heist is a full-stack software developer with experience designing and deve
       <label id="message-label" for="message">Message</label>
       <textarea name="message" onfocus="handleFocus(this.name);" onblur="handleBlur(this.name);" onchange="handleChange(this);"></textarea>
     </div>
-    {% csrf_token %}
     <span class="response"></span>
     <input class="btn" type="submit" value="Submit" />
   </form>
 </section>
-{% endblock content %} {% block page-scripts %}
+{% endblock content %}
+
+{% block page-scripts %}
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'js/formfields.js' %}"></script>
 
