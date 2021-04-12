@@ -1,5 +1,6 @@
 {% load static %}
 {% load sass_tags %}
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,10 +34,10 @@
 		{% endblock page-styles %}
 	</head>
 	<body>
-		{% include 'partials/nav.html' %}
 		{% block content %}
 		{% endblock content %}
+
+    {% block page-scripts %}
+    {% endblock page-scripts %}
 	</body>
-	{% block page-scripts %}
-	{% endblock page-scripts %}
 </html>
