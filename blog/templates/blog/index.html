@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load sass_tags %}
 
 {% block page-title %}
@@ -14,18 +15,29 @@ A software development blog about programming with Django, React, and Docker.
 {% endblock page-styles %}
 
 {% block content %}
-<section class="heading heading--light">
-    <h1 class="heading__title">Blog</h1>
-    <h2 class="heading__subtitle">Tutorials. Tips & Tricks. Etc.</h2>
+<section class="heading">
+  <img class="heading__brand" src="{% static 'img/brand.svg' %}" alt="Alex Heist - Software Developer" />
+  <h1 class="heading__copy"><em>Blog</em></h1>
+  <section class="links">
+    <a class="link" href="/">HOME</a>
+    <a class="link" href="/#projects">MY WORK</a>
+    <a class="link" href="/#contact">CONTACT</a>
+  </section>
+  <div class="social">
+    <a class="social__github" href="https://github.com/alexheist" target="_blank" rel="nofollow noopener">
+      <img src="{% static 'img/github.svg' %}" alt="GitHub Logo" />
+    </a>
+    <a class="social__linkedin" href="https://linkedin.com/in/alexander-heist" target="_blank" rel="nofollow noopener">
+      <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn Logo" />
+    </a>
+  </div>
 </section>
 
 <section class="articles">
     {% for article in articles %}
         <a href="{{ article.slug }}" class="articles__card">
-            <div class="blog-preview__wrapper">
-                <h4 class="blog-preview__title">{{ article.title }}</h4>
-                <p class="blog-preview__date">{{ article.published }}</p>
-            </div>
+            <h4 class="card__title">{{ article.title }}</h4>
+            <p class="card__date">{{ article.published }}</p>
         </a>
     {% endfor %}
 </section>

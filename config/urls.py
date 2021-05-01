@@ -11,19 +11,19 @@ from .sitemaps import StaticViewSitemap
 
 sitemaps = {
     "static": StaticViewSitemap,
-    # "blog": GenericSitemap(
-    #     {
-    #         "queryset": Article.objects.filter(published__lte=timezone.now().date()),
-    #         "date_field": "updated",
-    #     },
-    #     priority=0.9,
-    #     protocol="https",
-    # ),
+    "blog": GenericSitemap(
+        {
+            "queryset": Article.objects.filter(published__lte=timezone.now().date()),
+            "date_field": "updated",
+        },
+        priority=0.9,
+        protocol="https",
+    ),
 }
 
 urlpatterns = [
     path("", include("main.urls")),
-    # path("blog/", include("blog.urls")),
+    path("blog/", include("blog.urls")),
     path("admin/", admin.site.urls),
     path("markdownx/", include("markdownx.urls")),
     path(
