@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="{% sass_src 'css/base.scss' %}" type="text/css" />
 		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 
-		{% if request.get_host == 'alexheist.com' %}
+		{% if request.get_host == 'alexheist.com' or request.get_host == 'www.alexheist.com' %}
 			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=-159867696-1"></script>
 			<script>
