@@ -10,6 +10,16 @@
 {{ article.description }}
 {% endblock page-description %}
 
+{% block metadata %}
+  <meta name="title" property="og:title" content="{{ article.title }}" />
+  <meta property="og:type" content="article" />
+  {% if article.image %}
+    <meta name="image" property="og:image" content="https://{{ request.get_host }}{{ article.image.url }}" />
+  {% endif %}
+  <meta name="description" property="og:description" content="{{ article.description }}" />
+  <meta name="author" content="Alex Heist" />
+{% endblock metadata %}
+
 {% block page-styles %}
 <link rel="stylesheet" href="{% sass_src 'css/blog.scss' %}" type="text/css">
 <link rel="stylesheet" href="{% static 'css/vs2015.css' %}">

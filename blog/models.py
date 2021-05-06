@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.urls import reverse
 from django.utils import timezone
 from markdownx.models import MarkdownxField
@@ -13,6 +11,7 @@ class Article(models.Model):
     slug = models.CharField(max_length=127, unique=True)
     markdown = MarkdownxField()
     published = models.DateField()
+    image = models.ImageField(blank=True, null=True)
     updated = models.DateField(blank=True, null=True)
     hits = models.IntegerField(default=0)
 
